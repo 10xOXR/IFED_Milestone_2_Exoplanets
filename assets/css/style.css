@@ -40,7 +40,7 @@ body {
 
 #container {
     display: grid;
-    grid-template-rows: auto minmax(60vh, auto) auto;
+    grid-template-rows: auto minmax(90vh, auto) auto;
     grid-template-areas:
         "nav"
         "main"
