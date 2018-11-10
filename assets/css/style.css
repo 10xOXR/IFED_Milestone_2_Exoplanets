@@ -50,7 +50,13 @@ body {
 /*-------------------------------------------- NAVBAR --------------------------------------------*/
 #navbar {
     list-style-type: none;
+    padding: 0 auto;
     color: #707070;
+    text-align: right;
+}
+
+#navbar li {
+    margin-right: 30px;
 }
 
 #navbar li:hover,
@@ -66,11 +72,7 @@ body {
 }
 
 .hamburger-icon {
-    /*display: none;*/
     color: #fff291;
-}
-
-.fas {
     font-size: 2em;
 }
 
@@ -119,7 +121,7 @@ body {
 #intro button:focus,
 #intro button:active {
     background-color: #fff291;
-    box-shadow: 0 0 50px 20px #fff9cd;    
+    box-shadow: 0 0 50px 5px #fff9cd;
     border: none;
     outline: none;
 }
@@ -133,6 +135,7 @@ body {
 /*-------------------------------------------- MEDIA QUERIES --------------------------------------------*/
 
 @media (min-width: 820px) {
+
     #navbar {
         margin: 15px 0 0 0;
         padding: 0;
@@ -158,6 +161,7 @@ body {
     #intro h1 {
         font-size: 4vmax;
     }
+
     #intro h2 {
         font-size: 2vmax;
     }
