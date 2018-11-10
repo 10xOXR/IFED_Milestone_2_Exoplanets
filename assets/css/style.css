@@ -8,15 +8,13 @@
 
 body {
     font-family: 'Microgramma Bold Ext', Arial, sans-serif;
-    background: url('../images/stars.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    background: url('../images/stars.jpg') no-repeat cover fixed;
     margin: 0 auto;
     padding: 0;
     color: #ffffff;
 }
 
+/*-------------------------------------------- NAVBAR --------------------------------------------*/
 #navbar ul {
     list-style-type: none;
     margin: 15px 0 0 0;
@@ -28,6 +26,7 @@ body {
     color: #707070;
 }
 
+/*-------------------------------------------- HOME SECTION --------------------------------------------*/
 #planets {
     grid-area: planets;
 }
@@ -50,6 +49,7 @@ body {
     margin: 0 auto;
 }
 
+/*-------------------------------------------- JS ORBIT --------------------------------------------*/
 .orbit {
     stroke: rgba(255, 255, 255, 0.1);
     fill: none;
