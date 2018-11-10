@@ -22,8 +22,12 @@ body {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     justify-items: center;
-    font-size: 1em;
+    font-size: 1em;    
     color: #707070;
+}
+
+.selected {
+    color: #FFFFFF;
 }
 
 /*-------------------------------------------- HOME SECTION --------------------------------------------*/
