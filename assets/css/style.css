@@ -6,6 +6,12 @@
     font-style: normal;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Microgramma Bold Ext', Arial, sans-serif;
     background: url('../images/stars.jpg') top / cover no-repeat fixed;
@@ -14,20 +20,58 @@ body {
     color: #ffffff;
 }
 
-/*-------------------------------------------- NAVBAR --------------------------------------------*/
-#navbar ul {
-    list-style-type: none;
-    margin: 15px 0 0 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+#nav {
+    grid-area: nav;
     justify-items: center;
-    font-size: 1em;    
+    align-self: center;
+}
+
+#main {
+    grid-area: main;
+    justify-items: center;
+    align-self: center;
+}
+
+#footer {
+    grid-area: footer;
+    justify-items: center;
+    align-self: center;
+}
+
+#container {
+    display: grid;
+    grid-template-rows: auto minmax(60vh, auto) auto;
+    grid-template-areas:
+        "nav"
+        "main"
+        "footer";
+}
+
+/*-------------------------------------------- NAVBAR --------------------------------------------*/
+#navbar {
+    list-style-type: none;
     color: #707070;
 }
 
-.selected {
+#navbar li:hover,
+#navbar a:hover {
+    cursor: pointer;
     color: #FFFFFF;
+    transition: all .5s ease-in-out;
+}
+
+.selected {
+    color: rgb(255, 242, 145);
+    transition: all .5s ease-in-out;
+}
+
+.hamburger-icon {
+    /*display: none;*/
+    color: rgb(255, 242, 145);
+}
+
+.fas {
+    font-size: 2em;
 }
 
 /*-------------------------------------------- HOME SECTION --------------------------------------------*/
@@ -42,19 +86,58 @@ body {
 
 #home {
     display: grid;
-    grid-template-columns: 1fr repeat(2, minmax(40vw, auto)) 1fr;
-    grid-template-areas: ". planets intro .";
+    grid-template-columns: 1fr minmax(50vw, auto) 1fr;
+    grid-template-areas:
+        ". intro ."
+        ". planets .";
     align-items: center;
 }
 
 #intro h1 {
-    font-size: 3em;
+    font-size: 5vmax;
     color: #FF0000;
     margin: 0 auto;
+}
+
+#intro h2 {
+    font-size: 2.5vmax;
 }
 
 /*-------------------------------------------- JS ORBIT --------------------------------------------*/
 .orbit {
     stroke: rgba(255, 255, 255, 0.1);
     fill: none;
+}
+
+/*-------------------------------------------- MEDIA QUERIES --------------------------------------------*/
+
+@media (min-width: 820px) {
+    #navbar {
+        margin: 15px 0 0 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 10px;
+        justify-items: center;
+        align-self: center;
+        font-size: 1.4vmax;
+    }
+
+    .hamburger-icon {
+        display: none;
+    }
+
+    #home {
+        display: grid;
+        grid-template-columns: 1fr repeat(2, minmax(40vw, auto)) 1fr;
+        grid-template-areas: ". planets intro .";
+        align-items: center;
+    }
+
+    #intro h1 {
+        font-size: 4vmax;
+    }
+    #intro h2 {
+        font-size: 2vmax;
+    }
 }

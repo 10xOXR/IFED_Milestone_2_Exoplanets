@@ -11,7 +11,7 @@ $(document).ready(function () {
         $("#navMethod").removeClass('selected');
         $("#navResc").removeClass('selected');
         $("#navHome").addClass('selected');
-        $("#home").fadeIn(500);
+        $("#home").delay(300).fadeIn(500);
     });
     $("#navStats").on("click", function () {
         $("#navHome").removeClass('selected');
