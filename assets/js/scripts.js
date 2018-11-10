@@ -63,6 +63,16 @@ $(document).ready(function () {
         $("#navResc").addClass('selected');
         $("#home").fadeOut(500);
     });
+    $(":button").on("click", function () {
+        $("#navHome").removeClass('selected');
+        $("#navStats").removeClass('selected');
+        $("#navExo").removeClass('selected');
+        $("#navTerms").removeClass('selected');
+        $("#navMethod").removeClass('selected');
+        $("#navResc").removeClass('selected');
+        $("#navStats").addClass('selected');
+        $("#home").fadeOut(500);
+    });
 });
 
 // ------------------------------------- HOME DIV -------------------------------------
