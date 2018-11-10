@@ -84,24 +84,60 @@ var defs = svg.append("defs");
 //Append a radialGradient element to the defs and give it a unique id.
 var radialGradient = defs.append("radialGradient")
     .attr("id", "radial-gradient")
-    .attr("cx", "50%")    //The x-center of the gradient
-    .attr("cy", "50%")    //The y-center of the gradient
-    .attr("r", "50%");   //The radius of the gradient
+    .attr("cx", "50%")
+    .attr("cy", "50%")
+    .attr("r", "50%");
 
-    //Add colors to make the gradient appear like the Sun.
+//Add colors to make the gradient appear like the Sun.
     radialGradient.append("stop")
         .attr("offset", "0%")
         .attr("stop-color", "#FFF76B");
+
     radialGradient.append("stop")
         .attr("offset", "50%")
         .attr("stop-color", "#FFF845");
+
     radialGradient.append("stop")
         .attr("offset", "90%")
         .attr("stop-color", "#FFDA4E");
+
     radialGradient.append("stop")
         .attr("offset", "100%")
         .attr("stop-color", "#FB8933");
 
+//Create a radial gradient for each of the planets.
+var planetGradients = svg.append("defs").selectAll("radialGradient")
+    .data(planets)
+    .enter()
+    .append("radialGradient")
+
+//Create a unique id per planet
+    .attr("id", function(d){ 
+        return "gradient-" + d.planetName; 
+    })
+    .attr("cx", "35%")
+    .attr("cy", "50%")
+    .attr("r", "60%");
+
+//Add colors to the gradient
+    planetGradients.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", function(d) {
+        return d3.rgb(d.color).brighter(1);
+    });
+
+    planetGradients.append("stop")
+    .attr("offset", "50%")
+    .attr("stop-color", function(d) {
+        return d.color;
+    });
+
+    planetGradients.append("stop")
+    .attr("offset",  "100%")
+    .attr("stop-color", function(d) {
+        return d3.rgb(d.color).darker(1.75);
+    });
+    
 // Create an SVG group and append each planet in the 'planets'
 // variable to the SVG.
 var container = svg.append("g")
@@ -122,7 +158,7 @@ container.selectAll("g.planetName")
             .attr("cx", d.orbitRadius)
             .attr("cy", 0)
             .style("fill", function (d) {
-                return "" + d.color + "";
+                return "url(#gradient-" + d.planetName + ")";
             });
     });
 
