@@ -24,6 +24,7 @@ body {
     grid-template-columns: repeat(6, 1fr);
     justify-items: center;
     font-size: 1em;
+    color: #707070;
 }
 
 #planets {
@@ -39,10 +40,16 @@ body {
     display: grid;
     grid-template-columns: 1fr repeat(2, minmax(40vw, auto)) 1fr;
     grid-template-areas: ". planets intro .";
+    align-items: center;
 }
 
 #intro h1 {
     font-size: 3em;
     color: #FF0000;
     margin: 0 auto;
+}
+
+.orbit {
+    stroke: rgba(255, 255, 255, 0.1);
+    fill: none;
 }
