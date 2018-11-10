@@ -95,6 +95,6 @@ d3.timer(function () {
     var delta = (Date.now() - startTime);
     svg.selectAll(".planName")
         .attr("transform", function (d) {
-            return "rotate(" + delta * d.orbitSpeed / 175 + ")";
+            return "rotate(" + delta * d.orbitSpeed / 200 + ")";
         });
 });
