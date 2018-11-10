@@ -1,12 +1,75 @@
+// ------------------------------------- NAVBAR -------------------------------------
+
+// When each nav item is clicked, append only that item with
+// the 'selected' class.
+$(document).ready(function () {
+    $("#navLink1").on("click", function () {
+        $("#navLink1").removeClass('selected');
+        $("#navLink2").removeClass('selected');
+        $("#navLink3").removeClass('selected');
+        $("#navLink4").removeClass('selected');
+        $("#navLink5").removeClass('selected');
+        $("#navLink6").removeClass('selected');
+        $("#navLink1").addClass('selected');
+    });
+    $("#navLink2").on("click", function () {
+        $("#navLink1").removeClass('selected');
+        $("#navLink2").removeClass('selected');
+        $("#navLink3").removeClass('selected');
+        $("#navLink4").removeClass('selected');
+        $("#navLink5").removeClass('selected');
+        $("#navLink6").removeClass('selected');
+        $("#navLink2").addClass('selected');
+    });
+    $("#navLink3").on("click", function () {
+        $("#navLink1").removeClass('selected');
+        $("#navLink2").removeClass('selected');
+        $("#navLink3").removeClass('selected');
+        $("#navLink4").removeClass('selected');
+        $("#navLink5").removeClass('selected');
+        $("#navLink6").removeClass('selected');
+        $("#navLink3").addClass('selected');
+    });
+    $("#navLink4").on("click", function () {
+        $("#navLink1").removeClass('selected');
+        $("#navLink2").removeClass('selected');
+        $("#navLink3").removeClass('selected');
+        $("#navLink4").removeClass('selected');
+        $("#navLink5").removeClass('selected');
+        $("#navLink6").removeClass('selected');
+        $("#navLink4").addClass('selected');
+    });
+    $("#navLink5").on("click", function () {
+        $("#navLink1").removeClass('selected');
+        $("#navLink2").removeClass('selected');
+        $("#navLink3").removeClass('selected');
+        $("#navLink4").removeClass('selected');
+        $("#navLink5").removeClass('selected');
+        $("#navLink6").removeClass('selected');
+        $("#navLink5").addClass('selected');
+    });
+    $("#navLink6").on("click", function () {
+        $("#navLink1").removeClass('selected');
+        $("#navLink2").removeClass('selected');
+        $("#navLink3").removeClass('selected');
+        $("#navLink4").removeClass('selected');
+        $("#navLink5").removeClass('selected');
+        $("#navLink6").removeClass('selected');
+        $("#navLink6").addClass('selected');
+    });
+});
+
+// ------------------------------------- HOME DIV -------------------------------------
+
 // Width and height variables for the SVG viewBox coordinate system.
 var w = 800,
     h = 800,
 
-// Variable establishing a start time from moment page loaded,
-// defined as seconds since 01/01/1970 00:00:00.
+    // Variable establishing a start time from moment page loaded,
+    // defined as seconds since 01/01/1970 00:00:00.
     startTime = Date.now(),
 
-// Variable containing array objects for each planet.
+    // Variable containing array objects for each planet.
     planets = [{
             planetName: "Mercury",
             orbitRadius: 40,
@@ -89,21 +152,21 @@ var radialGradient = defs.append("radialGradient")
     .attr("r", "50%");
 
 //Add colors to make the gradient appear like the Sun.
-    radialGradient.append("stop")
-        .attr("offset", "0%")
-        .attr("stop-color", "#FFF76B");
+radialGradient.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", "#FFF76B");
 
-    radialGradient.append("stop")
-        .attr("offset", "50%")
-        .attr("stop-color", "#FFF845");
+radialGradient.append("stop")
+    .attr("offset", "50%")
+    .attr("stop-color", "#FFF845");
 
-    radialGradient.append("stop")
-        .attr("offset", "90%")
-        .attr("stop-color", "#FFDA4E");
+radialGradient.append("stop")
+    .attr("offset", "90%")
+    .attr("stop-color", "#FFDA4E");
 
-    radialGradient.append("stop")
-        .attr("offset", "100%")
-        .attr("stop-color", "#FB8933");
+radialGradient.append("stop")
+    .attr("offset", "100%")
+    .attr("stop-color", "#FB8933");
 
 //Create a radial gradient for each of the planets.
 var planetGradients = svg.append("defs").selectAll("radialGradient")
@@ -111,33 +174,33 @@ var planetGradients = svg.append("defs").selectAll("radialGradient")
     .enter()
     .append("radialGradient")
 
-//Create a unique id per planet
-    .attr("id", function(d){ 
-        return "gradient-" + d.planetName; 
+    //Create a unique id per planet
+    .attr("id", function (d) {
+        return "gradient-" + d.planetName;
     })
     .attr("cx", "35%")
     .attr("cy", "50%")
     .attr("r", "60%");
 
 //Add colors to the gradient
-    planetGradients.append("stop")
+planetGradients.append("stop")
     .attr("offset", "0%")
-    .attr("stop-color", function(d) {
+    .attr("stop-color", function (d) {
         return d3.rgb(d.color).brighter(1);
     });
 
-    planetGradients.append("stop")
+planetGradients.append("stop")
     .attr("offset", "50%")
-    .attr("stop-color", function(d) {
+    .attr("stop-color", function (d) {
         return d.color;
     });
 
-    planetGradients.append("stop")
-    .attr("offset",  "100%")
-    .attr("stop-color", function(d) {
+planetGradients.append("stop")
+    .attr("offset", "100%")
+    .attr("stop-color", function (d) {
         return d3.rgb(d.color).darker(1.75);
     });
-    
+
 // Create an SVG group and append each planet in the 'planets'
 // variable to the SVG.
 var container = svg.append("g")
