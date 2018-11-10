@@ -1,21 +1,22 @@
 var w = 800,
     h = 800,
+    startTime = Date.now(),
     planets = [{
-            name: "Mercury",
+            planName: "Mercury",
             orbitRadius: 40,
             planRadius: 5.7,
             orbitSpeed: 205,
             color: "#A17F5D"
         },
         {
-            name: "Venus",
+            planName: "Venus",
             orbitRadius: 80,
             planRadius: 14.2,
             orbitSpeed: 69,
             color: "#E89624"
         },
         {
-            name: "Earth",
+            planName: "Earth",
             orbitRadius: 115,
             planRadius: 15,
             orbitSpeed: 50,
@@ -36,11 +37,11 @@ svg.append("circle")
 var container = svg.append("g")
     .attr("transform", "translate(" + w / 2 + "," + h / 2 + ")");
 
-container.selectAll("g.name")
+container.selectAll("g.planName")
     .data(planets)
     .enter()
     .append("g")
-    .attr("class", "planet").each(function (d, i) {
+    .attr("class", "planName").each(function (d, i) {
         d3.select(this)
             .append("circle")
             .attr("class", "orbit")
@@ -51,6 +52,14 @@ container.selectAll("g.name")
             .attr("cx", d.orbitRadius)
             .attr("cy", 0)
             .style("fill", function (d) {
-                return ""+ d.color + "";
+                return "" + d.color + "";
             });
     });
+
+d3.timer(function () {
+    var delta = (Date.now() - startTime);
+    svg.selectAll(".planName")
+        .attr("transform", function (d) {
+            return "rotate(" + delta * d.orbitSpeed / 200 + ")";
+        });
+});
