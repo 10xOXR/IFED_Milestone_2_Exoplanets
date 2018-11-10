@@ -3,59 +3,65 @@
 // When each nav item is clicked, append only that item with
 // the 'selected' class.
 $(document).ready(function () {
-    $("#navLink1").on("click", function () {
-        $("#navLink1").removeClass('selected');
-        $("#navLink2").removeClass('selected');
-        $("#navLink3").removeClass('selected');
-        $("#navLink4").removeClass('selected');
-        $("#navLink5").removeClass('selected');
-        $("#navLink6").removeClass('selected');
-        $("#navLink1").addClass('selected');
+    $("#navHome").on("click", function () {
+        $("#navHome").removeClass('selected');
+        $("#navStats").removeClass('selected');
+        $("#navExo").removeClass('selected');
+        $("#navTerms").removeClass('selected');
+        $("#navMethod").removeClass('selected');
+        $("#navResc").removeClass('selected');
+        $("#navHome").addClass('selected');
+        $("#home").fadeIn(500);
     });
-    $("#navLink2").on("click", function () {
-        $("#navLink1").removeClass('selected');
-        $("#navLink2").removeClass('selected');
-        $("#navLink3").removeClass('selected');
-        $("#navLink4").removeClass('selected');
-        $("#navLink5").removeClass('selected');
-        $("#navLink6").removeClass('selected');
-        $("#navLink2").addClass('selected');
+    $("#navStats").on("click", function () {
+        $("#navHome").removeClass('selected');
+        $("#navStats").removeClass('selected');
+        $("#navExo").removeClass('selected');
+        $("#navTerms").removeClass('selected');
+        $("#navMethod").removeClass('selected');
+        $("#navResc").removeClass('selected');
+        $("#navStats").addClass('selected');
+        $("#home").fadeOut(500);
     });
-    $("#navLink3").on("click", function () {
-        $("#navLink1").removeClass('selected');
-        $("#navLink2").removeClass('selected');
-        $("#navLink3").removeClass('selected');
-        $("#navLink4").removeClass('selected');
-        $("#navLink5").removeClass('selected');
-        $("#navLink6").removeClass('selected');
-        $("#navLink3").addClass('selected');
+    $("#navExo").on("click", function () {
+        $("#navHome").removeClass('selected');
+        $("#navStats").removeClass('selected');
+        $("#navExo").removeClass('selected');
+        $("#navTerms").removeClass('selected');
+        $("#navMethod").removeClass('selected');
+        $("#navResc").removeClass('selected');
+        $("#navExo").addClass('selected');
+        $("#home").fadeOut(500);
     });
-    $("#navLink4").on("click", function () {
-        $("#navLink1").removeClass('selected');
-        $("#navLink2").removeClass('selected');
-        $("#navLink3").removeClass('selected');
-        $("#navLink4").removeClass('selected');
-        $("#navLink5").removeClass('selected');
-        $("#navLink6").removeClass('selected');
-        $("#navLink4").addClass('selected');
+    $("#navTerms").on("click", function () {
+        $("#navHome").removeClass('selected');
+        $("#navStats").removeClass('selected');
+        $("#navExo").removeClass('selected');
+        $("#navTerms").removeClass('selected');
+        $("#navMethod").removeClass('selected');
+        $("#navResc").removeClass('selected');
+        $("#navTerms").addClass('selected');
+        $("#home").fadeOut(500);
     });
-    $("#navLink5").on("click", function () {
-        $("#navLink1").removeClass('selected');
-        $("#navLink2").removeClass('selected');
-        $("#navLink3").removeClass('selected');
-        $("#navLink4").removeClass('selected');
-        $("#navLink5").removeClass('selected');
-        $("#navLink6").removeClass('selected');
-        $("#navLink5").addClass('selected');
+    $("#navMethod").on("click", function () {
+        $("#navHome").removeClass('selected');
+        $("#navStats").removeClass('selected');
+        $("#navExo").removeClass('selected');
+        $("#navTerms").removeClass('selected');
+        $("#navMethod").removeClass('selected');
+        $("#navResc").removeClass('selected');
+        $("#navMethod").addClass('selected');
+        $("#home").fadeOut(500);
     });
-    $("#navLink6").on("click", function () {
-        $("#navLink1").removeClass('selected');
-        $("#navLink2").removeClass('selected');
-        $("#navLink3").removeClass('selected');
-        $("#navLink4").removeClass('selected');
-        $("#navLink5").removeClass('selected');
-        $("#navLink6").removeClass('selected');
-        $("#navLink6").addClass('selected');
+    $("#navResc").on("click", function () {
+        $("#navHome").removeClass('selected');
+        $("#navStats").removeClass('selected');
+        $("#navExo").removeClass('selected');
+        $("#navTerms").removeClass('selected');
+        $("#navMethod").removeClass('selected');
+        $("#navResc").removeClass('selected');
+        $("#navResc").addClass('selected');
+        $("#home").fadeOut(500);
     });
 });
 
