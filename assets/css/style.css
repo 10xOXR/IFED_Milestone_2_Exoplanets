@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Microgramma Bold Ext', Arial, sans-serif;
-    background: url('../images/stars.jpg') no-repeat cover fixed;
+    background: url('../images/stars.jpg') top / cover no-repeat fixed;
     margin: 0 auto;
     padding: 0;
     color: #ffffff;
