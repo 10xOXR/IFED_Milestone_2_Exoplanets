@@ -8,22 +8,41 @@
 
 body {
     font-family: 'Microgramma Bold Ext', Arial, sans-serif;
-    background: url('../images/stars.jpg');
+    background: url('../images/stars.jpg');    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     margin: 0 auto;
     padding: 0;
     color: #ffffff;
 }
 
-#navbar {
-    
-}
-
 #navbar ul {
     list-style-type: none;
-    margin: 0 auto;
+    margin: 15px 0 0 0;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     justify-items: center;
     font-size: 1em;
+}
+
+#planets {
+    grid-area: planets;
+}
+
+#intro {
+    grid-area: intro;
+    text-align: center;
+}
+
+#home {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, minmax(40vw, auto)) 1fr;
+    grid-template-areas: ". planets intro .";
+}
+
+#intro h1 {
+    font-size: 3em;
+    color: #FF0000;
+    margin: 0 auto;
 }
