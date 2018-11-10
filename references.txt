@@ -1,0 +1,14 @@
+--- Documentation ---
+SVG Groups:
+https://www.w3.org/TR/SVG/struct.html#Groups
+
+CSS Grid:
+https://css-tricks.com/snippets/css/complete-guide-grid/
+
+--- Images ---
+Stars:
+https://i.ytimg.com/vi/QnrzS2xEoWg/maxresdefault.jpg
+
+--- Javascript ---
+Animate planets:
+https://stackoverflow.com/questions/14872687/how-to-rotate-an-object-around-the-center-in-d3-js?noredirect=1&lq=1
