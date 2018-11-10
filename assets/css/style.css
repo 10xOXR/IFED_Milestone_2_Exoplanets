@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Microgramma Bold Ext';
+    src: url('../fonts/microgramma-webfont.woff2') format('woff2'),
+        url('../fonts/microgramma-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Microgramma Bold Ext', Arial, sans-serif;
+    background: url('../images/stars.jpg');
+    margin: 0 auto;
+    padding: 0;
+    color: #ffffff;
+}
+
+#navbar {
+    
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    font-size: 1em;
+}
