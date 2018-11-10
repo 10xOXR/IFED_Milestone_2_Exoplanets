@@ -1,7 +1,7 @@
 // ------------------------------------- NAVBAR -------------------------------------
 
 // When each nav item is clicked, append only that item with
-// the 'selected' class.
+// the 'selected' class and remove it fromn the others.
 $(document).ready(function () {
     $("#navHome").on("click", function () {
         $("#navHome").removeClass('selected');
@@ -63,6 +63,9 @@ $(document).ready(function () {
         $("#navResc").addClass('selected');
         $("#home").fadeOut(500);
     });
+
+// When the CTA button is clicked, append 'selected' to #navStats
+// and show #home.
     $(":button").on("click", function () {
         $("#navHome").removeClass('selected');
         $("#navStats").removeClass('selected');
@@ -72,6 +75,25 @@ $(document).ready(function () {
         $("#navResc").removeClass('selected');
         $("#navStats").addClass('selected');
         $("#home").fadeOut(500);
+    });
+
+// Media query to show the li text elements below 820px, else show them.
+    $(window).on("resize", function () {
+        if ($(window).width() > 819) {
+            $("#navHome").show();
+            $("#navStats").show();
+            $("#navExo").show();
+            $("#navTerms").show();
+            $("#navMethod").show();
+            $("#navResc").show();
+        } else {
+            $("#navHome").hide();
+            $("#navStats").hide();
+            $("#navExo").hide();
+            $("#navTerms").hide();
+            $("#navMethod").hide();
+            $("#navResc").hide();
+        }
     });
 });
 
