@@ -1,5 +1,24 @@
 // ------------------------------------- NAVBAR -------------------------------------
 
+// Media query to show the li text elements below 820px, else show them.
+$(window).on("resize", function () {
+    if ($(window).width() > 819) {
+        $("#navHome").show();
+        $("#navStats").show();
+        $("#navExo").show();
+        $("#navTerms").show();
+        $("#navMethod").show();
+        $("#navResc").show();
+    } else {
+        $("#navHome").hide();
+        $("#navStats").hide();
+        $("#navExo").hide();
+        $("#navTerms").hide();
+        $("#navMethod").hide();
+        $("#navResc").hide();
+    }
+});
+
 // When each nav item is clicked, append only that item with
 // the 'selected' class and remove it fromn the others.
 $(document).ready(function () {
@@ -77,24 +96,7 @@ $(document).ready(function () {
         $("#home").fadeOut(500);
     });
 
-// Media query to show the li text elements below 820px, else show them.
-    $(window).on("resize", function () {
-        if ($(window).width() > 819) {
-            $("#navHome").show();
-            $("#navStats").show();
-            $("#navExo").show();
-            $("#navTerms").show();
-            $("#navMethod").show();
-            $("#navResc").show();
-        } else {
-            $("#navHome").hide();
-            $("#navStats").hide();
-            $("#navExo").hide();
-            $("#navTerms").hide();
-            $("#navMethod").hide();
-            $("#navResc").hide();
-        }
-    });
+
 });
 
 // ------------------------------------- HOME DIV -------------------------------------
