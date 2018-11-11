@@ -1,85 +1,61 @@
 // ------------------------------------- NAVBAR -------------------------------------
 
-// When each nav item is clicked, append only that item with
-// the 'selected' class and remove it fromn the others.
 $(document).ready(function () {
-    $("#navHome").on("click", function () {
-        $("#navHome").removeClass('selected');
-        $("#navStats").removeClass('selected');
-        $("#navExo").removeClass('selected');
-        $("#navTerms").removeClass('selected');
-        $("#navMethod").removeClass('selected');
-        $("#navResc").removeClass('selected');
-        $("#navHome").addClass('selected');
-        $("#home").delay(300).fadeIn(500);
-    });
-    $("#navStats").on("click", function () {
-        $("#navHome").removeClass('selected');
-        $("#navStats").removeClass('selected');
-        $("#navExo").removeClass('selected');
-        $("#navTerms").removeClass('selected');
-        $("#navMethod").removeClass('selected');
-        $("#navResc").removeClass('selected');
-        $("#navStats").addClass('selected');
-        $("#home").fadeOut(500);
-    });
-    $("#navExo").on("click", function () {
-        $("#navHome").removeClass('selected');
-        $("#navStats").removeClass('selected');
-        $("#navExo").removeClass('selected');
-        $("#navTerms").removeClass('selected');
-        $("#navMethod").removeClass('selected');
-        $("#navResc").removeClass('selected');
-        $("#navExo").addClass('selected');
-        $("#home").fadeOut(500);
-    });
-    $("#navTerms").on("click", function () {
-        $("#navHome").removeClass('selected');
-        $("#navStats").removeClass('selected');
-        $("#navExo").removeClass('selected');
-        $("#navTerms").removeClass('selected');
-        $("#navMethod").removeClass('selected');
-        $("#navResc").removeClass('selected');
-        $("#navTerms").addClass('selected');
-        $("#home").fadeOut(500);
-    });
-    $("#navMethod").on("click", function () {
-        $("#navHome").removeClass('selected');
-        $("#navStats").removeClass('selected');
-        $("#navExo").removeClass('selected');
-        $("#navTerms").removeClass('selected');
-        $("#navMethod").removeClass('selected');
-        $("#navResc").removeClass('selected');
-        $("#navMethod").addClass('selected');
-        $("#home").fadeOut(500);
-    });
-    $("#navResc").on("click", function () {
-        $("#navHome").removeClass('selected');
-        $("#navStats").removeClass('selected');
-        $("#navExo").removeClass('selected');
-        $("#navTerms").removeClass('selected');
-        $("#navMethod").removeClass('selected');
-        $("#navResc").removeClass('selected');
-        $("#navResc").addClass('selected');
-        $("#home").fadeOut(500);
-    });
 
-    // When the CTA button is clicked, append 'selected' to #navStats
-    // and show #home.
-    $(":button").on("click", function () {
-        $("#navHome").removeClass('selected');
-        $("#navStats").removeClass('selected');
-        $("#navExo").removeClass('selected');
-        $("#navTerms").removeClass('selected');
-        $("#navMethod").removeClass('selected');
-        $("#navResc").removeClass('selected');
-        $("#navStats").addClass('selected');
-        $("#home").fadeOut(500);
-    });
+    // On load, hide all sections aside from 'Home'.
+    $(function () {
+        $(".statistics, .exoplanets, .terminology, .methodology, .resources").hide();
+      
+        // When each nav li is clicked, hide all sections.
+        $("#navHome, #navStats, #navExo, #navTerms, #navMethod, #navResc, #cta").on("click", function () {
+          $(".home, .statistics, .exoplanets, .terminology, .methodology, .resources").hide();
+          
+        // Remove the 'selected' class from all li elements.
+          $("#navHome,#navStats,#navExo,#navTerms,#navMethod,#navResc").removeClass('selected');
 
-    // Toggle the displayNone class to show/hide the navbar.
-
-    $("#menu-toggle,#navHome,#navStats,#navExo,#navTerms,#navMethod,#navResc").on("click", function () {
+        // If/else statements to check which li was clicked,
+        // apply 'selected' class only to that li, and fadeIn the corresponding section.
+          if ($(this).attr("id") == "navHome")
+          {
+            $("#navHome").addClass('selected');
+            $(".home").fadeIn(500);
+          }
+          else if ($(this).attr("id") == "navStats")
+          {
+            $("#navStats").addClass('selected');
+            $(".statistics").fadeIn(500);
+          }
+          else if ($(this).attr("id") == "navExo")
+          {
+            $("#navExo").addClass('selected');
+            $(".exoplanets").fadeIn(500);
+          }
+          else if ($(this).attr("id") == "navTerms")
+          {
+            $("#navTerms").addClass('selected');
+            $(".terminology").fadeIn(500);
+          }
+          else if ($(this).attr("id") == "navMethod")
+          {
+            $("#navMethod").addClass('selected');
+            $(".methodology").fadeIn(500);
+          }
+          else if ($(this).attr("id") == "navResc")
+          {
+            $("#navResc").addClass('selected');
+            $(".resources").fadeIn(500);
+          }
+          else if ($(this).attr("id") == "cta")
+          {
+            $("#navStats").addClass('selected');
+            $(".statistics").fadeIn(500);
+          }
+        });
+      });
+    
+    // Toggle the displayNone class to show/hide the navbar only when
+    // the screen/window size is below 820px.
+    $("#menu-toggle, #navHome, #navStats, #navExo, #navTerms, #navMethod, #navResc").on("click", function () {
         if ($(window).width() <820) {
             $("#nav>ul").slideToggle('normal', function () {
                 $(this).css('display', '').toggleClass('displayNone');
