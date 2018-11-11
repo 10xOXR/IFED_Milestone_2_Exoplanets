@@ -1,0 +1,29 @@
+Exoplanet Data:
+https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=planets
+
+--- Documentation ---
+SVG Groups:
+https://www.w3.org/TR/SVG/struct.html#Groups
+
+CSS Grid:
+https://css-tricks.com/snippets/css/complete-guide-grid/
+
+SVG Graphical Objects:
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/defs
+
+SVG Gradients:
+https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient
+
+--- Javascript / jQuery ---
+Animate planets:
+https://stackoverflow.com/questions/14872687/how-to-rotate-an-object-around-the-center-in-d3-js?noredirect=1&lq=1
+
+Remove 'display:none' from slideToggle:
+https://stackoverflow.com/questions/25542441/remove-displaynone-from-slidetoggle-in-jquery
+
+Hide one element and show another:
+https://stackoverflow.com/questions/11761049/css-jquery-hide-one-div-show-another
+
+--- Images ---
+Stars:
+https://i.ytimg.com/vi/QnrzS2xEoWg/maxresdefault.jpg
