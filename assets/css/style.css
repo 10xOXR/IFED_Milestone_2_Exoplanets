@@ -15,6 +15,7 @@
 body {
     font-family: 'Microgramma Bold Ext', Arial, sans-serif;
     background: url('../images/stars4.jpg') top / cover no-repeat fixed;
+    background-color: #000000;
     margin: 0 auto;
     padding: 0;
     color: #ffffff;
