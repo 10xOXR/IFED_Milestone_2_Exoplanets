@@ -1,3 +1,5 @@
+/*-------------------------------------------- GLOBAL ELEMENTS --------------------------------------------*/
+
 @font-face {
     font-family: 'Microgramma Bold Ext';
     src: url('../fonts/microgramma-webfont.woff2') format('woff2'),
@@ -88,8 +90,13 @@ body {
 }
 
 #menu-toggle .fa-bars {
-    color: #fff291;
+    color: #707070;
     font-size: 2em;
+}
+
+#menu-toggle i:hover {
+    color: #FFFFFF;
+    transition: all .3s ease-in-out;
 }
 
 /*-------------------------------------------- HOME SECTION --------------------------------------------*/
@@ -142,7 +149,6 @@ body {
     outline: none;
 }
 
-/*-------------------------------------------- JS ORBIT --------------------------------------------*/
 .orbit {
     stroke: rgba(255, 255, 255, 0.1);
     stroke-width: 2px;
