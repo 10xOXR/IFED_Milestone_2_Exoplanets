@@ -78,14 +78,17 @@ $(document).ready(function () {
     });
 
     // Toggle the displayNone class to show/hide the navbar.
+
     $("#menu-toggle,#navHome,#navStats,#navExo,#navTerms,#navMethod,#navResc").on("click", function () {
-        $("#nav>ul").slideToggle('normal', function () {
-            $(this).css('display', '').toggleClass('displayNone');
-        });
+        if ($(window).width() <820) {
+            $("#nav>ul").slideToggle('normal', function () {
+                $(this).css('display', '').toggleClass('displayNone');
+            });
+        };
     });
 });
 
-// ------------------------------------- HOME DIV -------------------------------------
+// ------------------------------------- HOME SECTION -------------------------------------
 
 // Width and height variables for the SVG viewBox coordinate system.
 var w = 800,
@@ -260,3 +263,6 @@ d3.timer(function () {
             return "rotate(" + delta * d.orbitSpeed / 200 + ")";
         });
 });
+
+// ------------------------------------- STATISTICS SECTION -------------------------------------
+
