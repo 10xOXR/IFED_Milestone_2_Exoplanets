@@ -78,7 +78,7 @@ $(document).ready(function () {
     });
 
     // Toggle the displayNone class to show/hide the navbar.
-    $("#menu-toggle").on("click", function () {
+    $("#menu-toggle,#navHome,#navStats,#navExo,#navTerms,#navMethod,#navResc").on("click", function () {
         $("#nav>ul").slideToggle('normal', function () {
             $(this).css('display', '').toggleClass('displayNone');
         });
