@@ -1,14 +1,12 @@
 @font-face {
     font-family: 'Microgramma Bold Ext';
     src: url('../fonts/microgramma-webfont.woff2') format('woff2'),
-        url('../fonts/microgramma-webfont.woff') format('woff');
+         url('../fonts/microgramma-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
-*,
-*::before,
-*::after {
+* {
     box-sizing: border-box;
 }
 
@@ -48,30 +46,48 @@ body {
 }
 
 /*-------------------------------------------- NAVBAR --------------------------------------------*/
-#navbar {
-    list-style-type: none;
-    padding: 0 auto;
-    color: #707070;
+#menu-toggle {
+    position: relative;
     text-align: right;
+    margin: 20px 0 0 0;
+    cursor: pointer;
+    right: 15px;
 }
 
-#navbar li {
-    margin-right: 30px;
+.navbar {
+    list-style-type: none;
+    padding: 0;
+    color: #707070;
+    text-align: center;
+    background-color: rgba(112,112,112,.4);
+    letter-spacing: 2px;
 }
 
-#navbar li:hover,
-#navbar a:hover {
+#nav ul {
+    padding: 0;
+}
+
+.navbar li {
+    line-height: 50px;
+}
+
+.navbar li:hover {
     cursor: pointer;
     color: #FFFFFF;
-    transition: all .5s ease-in-out;
+    transition: all .3s ease-in-out;
+    background-color: rgba(255, 244, 145, .5);
 }
 
 .selected {
     color: #fff291;
-    transition: all .5s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
-.hamburger-icon {
+.displayNone {
+    display: none;
+}
+
+#menu-toggle .fa-bars {
     color: #fff291;
     font-size: 2em;
 }
@@ -137,7 +153,9 @@ body {
 
 @media (min-width: 820px) {
 
-    #navbar {
+    /*------------ NAVBAR -----------*/
+        
+    .navbar {
         margin: 15px 0 0 0;
         padding: 0;
         display: grid;
@@ -146,12 +164,23 @@ body {
         justify-items: center;
         align-self: center;
         font-size: 1.4vmax;
+        background-color: unset;
+        letter-spacing: 0px;
     }
 
-    .hamburger-icon {
+    .navbar li {
+        line-height: normal;
+    }
+
+    .navbar li:hover {
+        background-color: unset;
+    }
+
+    #menu-toggle {
         display: none;
     }
 
+    /*------------ HOME SECTION -----------*/
     #home {
         display: grid;
         grid-template-columns: 1fr repeat(2, minmax(40vw, auto)) 1fr;
