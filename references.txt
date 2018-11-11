@@ -18,6 +18,8 @@ https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient
 Animate planets:
 https://stackoverflow.com/questions/14872687/how-to-rotate-an-object-around-the-center-in-d3-js?noredirect=1&lq=1
 
+Remove display:none from slideToggle:
+https://stackoverflow.com/questions/25542441/remove-displaynone-from-slidetoggle-in-jquery
 
 --- Images ---
 Stars:
