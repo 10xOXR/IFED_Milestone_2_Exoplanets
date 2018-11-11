@@ -14,7 +14,7 @@
 
 body {
     font-family: 'Microgramma Bold Ext', Arial, sans-serif;
-    background: url('../images/stars.jpg') top / cover no-repeat fixed;
+    background: url('../images/stars4.jpg') top / cover no-repeat fixed;
     margin: 0 auto;
     padding: 0;
     color: #ffffff;
@@ -122,11 +122,13 @@ body {
     font-size: 5vmax;
     color: #FFF76B;
     margin: 0 auto;
+    text-shadow: 4px 4px 5px rgba(112, 112, 112, 1);
 }
 
 #intro h2 {
     font-size: 2.5vmax;
     margin: 10px 0 20px 0;
+    text-shadow: 2px 2px 2px rgba(112, 112, 112, 1);
 }
 
 #intro button {
@@ -138,6 +140,7 @@ body {
     border: none;
     background-color: #d3c13a;
     transition: all .3s ease-in-out;
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 1);
 }
 
 #intro button:hover,
