@@ -109,7 +109,7 @@ body {
     text-align: center;
 }
 
-#home {
+.home {
     display: grid;
     grid-template-columns: 1fr minmax(80vw, auto) 1fr;
     grid-template-areas:
@@ -187,7 +187,7 @@ body {
     }
 
     /*------------ HOME SECTION -----------*/
-    #home {
+    .home {
         display: grid;
         grid-template-columns: 1fr repeat(2, minmax(40vw, auto)) 1fr;
         grid-template-areas: ". planets intro .";
