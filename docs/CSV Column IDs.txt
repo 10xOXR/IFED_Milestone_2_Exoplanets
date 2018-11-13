@@ -1,0 +1,49 @@
+
+# This file was produced by the NASA Exoplanet Archive  http://exoplanetarchive.ipac.caltech.edu
+# Fri Nov  9 12:31:47 2018
+#
+# COLUMN pl_hostname:    Host Name
+# COLUMN pl_letter:      Planet Letter
+# COLUMN pl_name:        Planet Name
+# COLUMN pl_discmethod:  Discovery Method
+# COLUMN pl_pnum:        Number of Planets in System
+# COLUMN pl_orbper:      Orbital Period [days]
+# COLUMN pl_orbsmax:     Orbit Semi-Major Axis [AU])
+# COLUMN pl_orbeccen:    Eccentricity
+# COLUMN pl_orbincl:     Inclination [deg]
+# COLUMN pl_bmassj:      Planet Mass or M*sin(i) [Jupiter mass]
+# COLUMN pl_bmassprov:   Planet Mass or M*sin(i) Provenance
+# COLUMN pl_radj:        Planet Radius [Jupiter radii]
+# COLUMN pl_dens:        Planet Density [g/cm**3]
+# COLUMN pl_ttvflag:     TTV Flag
+# COLUMN pl_kepflag:     Kepler Field Flag
+# COLUMN pl_k2flag:      K2 Mission Flag
+# COLUMN pl_nnotes:      Number of Notes
+# COLUMN ra_str:         RA [sexagesimal]
+# COLUMN ra:             RA [decimal degrees]
+# COLUMN dec_str:        Dec [sexagesimal]
+# COLUMN dec:            Dec [decimal degrees]
+# COLUMN st_dist:        Distance [pc]
+# COLUMN st_optmag:      Optical Magnitude [mag]
+# COLUMN st_optband:     Optical Magnitude Band
+# COLUMN gaia_gmag:      G-band (Gaia) [mag]
+# COLUMN st_teff:        Effective Temperature [K]
+# COLUMN st_mass:        Stellar Mass [Solar mass]
+# COLUMN st_rad:         Stellar Radius [Solar radii]
+# COLUMN rowupdate:      Date of Last Update
+# COLUMN pl_imgflag:     Planet Imaging Flag
+# COLUMN pl_cbflag:      Planet Circumbinary Flag
+# COLUMN pl_eqt:         Equilibrium Temperature [K]
+# COLUMN pl_massj:       Planet Mass [Jupiter mass]
+# COLUMN pl_masse:       Planet Mass [Earth mass]
+# COLUMN pl_msinie:      Planet M*sin(i) [Earth mass]
+# COLUMN pl_rade:        Planet Radius [Earth radii]
+# COLUMN pl_disc:        Year of Discovery
+# COLUMN pl_disc_reflink: Discovery Reference
+# COLUMN pl_locale:      Discovery Locale
+# COLUMN pl_facility:    Discovery Facility
+# COLUMN pl_telescope:   Discovery Telescope
+# COLUMN pl_instrument:  Discovery Instrument
+# COLUMN st_lum:         Stellar Luminosity [log(Solar)]
+# COLUMN st_age:         Stellar Age [Gyr]
+#
