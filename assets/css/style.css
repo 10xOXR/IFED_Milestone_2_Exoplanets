@@ -8,6 +8,15 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Microgramma Regular';
+    src: url('../fonts/microgrammadeemedext_regular-webfont.woff2') format('woff2'),
+         url('../fonts/microgrammadeemedext_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 * {
     box-sizing: border-box;
 }
@@ -58,6 +67,7 @@ body {
 }
 
 .navbar {
+    position: relative;
     list-style-type: none;
     padding: 0;
     color: #707070;
@@ -159,6 +169,59 @@ body {
     fill: none;
 }
 
+/*-------------------------------------------- STATISTICS SECTION --------------------------------------------*/
+
+.statistics {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "ground-based space-based multiple"
+        "disc-year . .";
+    align-items: center;
+    justify-items: center;
+}
+
+#ground-based {
+    grid-area: ground-based;
+    padding-top: 50px;
+}
+
+#space-based {
+    grid-area: space-based;
+    padding-top: 50px;
+}
+
+#multiple {
+    grid-area: multiple;
+    padding-top: 50px;
+}
+
+#disc-year {
+    grid-area: disc-year;
+    align-self: center;
+    justify-self: center;
+    padding-top: 50px;
+    width: 25vw;
+    fill: #FFFFFF;
+    shape-rendering: crispEdges;
+}
+
+#disc-year path.domain,
+#disc-year line {
+    fill: none;
+    stroke: white;
+}
+
+#disc-year.dc-chart svg {
+    width: 90vw;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#disc-year.dc-chart svg g.dc-legend text {
+    font-family: 'Microgramma Regular', Arial, sans-serif;
+    letter-spacing: 1.2px;
+}
+
 /*-------------------------------------------- MEDIA QUERIES --------------------------------------------*/
 
 @media (min-width: 820px) {
@@ -205,4 +268,4 @@ body {
     #intro h2 {
         font-size: 2vmax;
     }
-}
+};
