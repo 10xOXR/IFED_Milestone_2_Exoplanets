@@ -244,8 +244,7 @@ function makeGraphs(error, exoPlanetData) {
         d.loc_rowid = parseInt(d.loc_rowid);
     });
 
-    //exo_discovery_year(ndx);
-
+    exo_discovery_year(ndx);
     observatory_location(ndx, "Ground", "#ground-based");
     observatory_location(ndx, "Space", "#space-based");
     observatory_location(ndx, "Multiple Locales", "#multiple");
@@ -290,23 +289,23 @@ function observatory_location(ndx, location, element) {
             }
         })
         .group(percentageByLocation)
-        .transitionDuration(1000);
+        .transitionDuration(500);
 };
 
-/*function exo_discovery_year(ndx) {
+function exo_discovery_year(ndx) {
 
-    function rankByGender(dimension, rank) {
+    function rankByMethod(dimension, discMethod) {
         return dimension.group().reduce(
             function (p, v) {
                 p.total++;
-                if (v.rank == rank) {
+                if (v.discmethod == discMethod) {
                     p.match++;
                 }
                 return p;
             },
             function (p, v) {
                 p.total--;
-                if (v.rank == rank) {
+                if (v.discmethod == discMethod) {
                     p.match--;
                 }
                 return p;
@@ -320,23 +319,39 @@ function observatory_location(ndx, location, element) {
         );
     };
 
+    var w = 1150;
+    var h = 450
     var dim = ndx.dimension(dc.pluck("pl_disc"));
-    var profByGender = rankByGender(dim, "Prof");
-    var asstProfByGender = rankByGender(dim, "AsstProf");
-    var assocProfByGender = rankByGender(dim, "AssocProf");
+    var astroByMethod = rankByMethod(dim, "Astrometry");
+    var eclipseTimeVarByMethod = rankByMethod(dim, "Eclipse Timing Variations");
+    var imageByMethod = rankByMethod(dim, "Imaging");
+    var microlensByMethod = rankByMethod(dim, "Microlensing");
+    var orbitBrightModByMethod = rankByMethod(dim, "Orbital Brightness Modulation");
+    var pulsarTimeByMethod = rankByMethod(dim, "Pulsar Timing");
+    var pulsarTimeVarByMethod = rankByMethod(dim, "Pulsation Timing Variations");
+    var radialVelByMethod = rankByMethod(dim, "Radial Velocity");
+    var transitByMethod = rankByMethod(dim, "Transit");
+    var transitTimeByMethod = rankByMethod(dim, "Transit Timing Variations");
 
-    dc.barChart("#rank-distribution")
-        .width(350)
+    dc.barChart("#disc-year")
+        .width(950)
         .height(250)
         .gap(10)
-        //.useViewBoxResizing(true)
+        .useViewBoxResizing(true)
         .dimension(dim)
-        .group(profByGender, "Prof")
-        .stack(asstProfByGender, "Asst Prof")
-        .stack(assocProfByGender, "Assoc Prof")
+        .group(radialVelByMethod, "Radial Velocity")
+        //.stack(radialVelByMethod, "Radial Velocity")
+        .stack(imageByMethod, "Imaging")
+        .stack(astroByMethod, "Astrometry")
+        .stack(eclipseTimeVarByMethod, "Eclipse Timing Variations")
+        .stack(microlensByMethod, "Microlensing")
+        .stack(pulsarTimeByMethod, "Pulsar Timing")
+        .stack(pulsarTimeVarByMethod, "Pulsar Timing Variations")
+        .stack(orbitBrightModByMethod, "Orbital Brightness Modulation")
+        .stack(transitTimeByMethod, "Transit Timing Variations")
         .valueAccessor(function (d) {
             if (d.value.total > 0) {
-                return (d.value.match / d.value.total).toFixed(3) * 100;
+                return d.value.match;
             } else {
                 return 0;
             }
@@ -345,14 +360,14 @@ function observatory_location(ndx, location, element) {
         .transitionDelay(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
-        .legend(dc.legend().x(270).y(20).itemHeight(15).gap(15))
+        .elasticY(true)
+        .legend(dc.legend().x(60).y(5).itemHeight(10).gap(5))
         .margins({
             top: 10,
             right: 100,
             bottom: 30,
             left: 30
         })
-        .xAxisLabel("Gender")
-        .yAxisLabel("% Staff");
-
-};*/
+        .xAxisLabel("Discovery Year")
+        .yAxisLabel("No. of Planets");
+};
