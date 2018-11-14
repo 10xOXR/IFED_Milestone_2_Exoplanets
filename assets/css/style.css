@@ -175,11 +175,23 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
+        "resetButton . ."
         "ground-based space-based multiple"
         "disc-year . ."
         "planets-in-system . .";
     align-items: center;
     justify-items: center;
+}
+
+#resetButton {
+    grid-area: resetButton;
+    text-decoration: none;
+}
+
+#resetButton a {    
+    text-decoration: none;
+    font-family: 'Microgramma Bold Ext', Arial, sans-serif;
+    color: #000000;
 }
 
 #ground-based {
