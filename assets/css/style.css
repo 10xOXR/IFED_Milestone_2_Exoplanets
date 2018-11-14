@@ -176,7 +176,8 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
         "ground-based space-based multiple"
-        "disc-year . .";
+        "disc-year . ."
+        "planets-in-system . .";
     align-items: center;
     justify-items: center;
 }
@@ -196,6 +197,13 @@ body {
     padding-top: 50px;
 }
 
+#planets-in-system {
+    grid-area: planets-in-system;
+    padding-top: 50px;
+    width: 33vw;
+    justify-items: center;
+}
+
 #disc-year {
     grid-area: disc-year;
     align-self: center;
@@ -207,9 +215,26 @@ body {
 }
 
 #disc-year path.domain,
-#disc-year line {
+#disc-year line,
+#planets-in-system path.domain {
     fill: none;
     stroke: white;
+}
+
+.dc-legend .dc-legend-item {
+    cursor: pointer;
+    fill: #ffffff;
+    font-family: 'Microgramma Regular', Arial, sans-serif;
+    letter-spacing: 1.2px;
+}
+
+.dc-chart .pie-path {
+    stroke: #fff;
+}
+
+.dc-chart .pie-slice.external {
+    fill: #ffffff;
+    font-family: 'Microgramma Regular', Arial, sans-serif;
 }
 
 #disc-year.dc-chart svg {
