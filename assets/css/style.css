@@ -222,7 +222,7 @@ body {
 #disc-year {
     grid-area: disc-year;
     align-self: center;
-    justify-self: center;
+    justify-self: left;
     padding-top: 50px;
     width: 25vw;
     fill: #FFFFFF;
@@ -325,6 +325,10 @@ body {
             "ground-based space-based multiple"
             "disc-year . ."
             "planets-in-system planets-orbital-period .";
+     }
+
+     #disc-year {
+        justify-self: center;
      }
 
      #planets-in-system {
