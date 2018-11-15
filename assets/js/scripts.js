@@ -243,10 +243,12 @@ function makeGraphs(error, exoPlanetData) {
         d.pl_disc = parseInt(d.pl_disc);
         d.loc_rowid = parseInt(d.loc_rowid);
         d.plnum = parseInt(d.plnum);
+        d.pl_orbper = parseFloat(d.pl_orbper);
     });
 
     exo_discovery_year(ndx);
     planets_in_system(ndx);
+    planets_orbital_period(ndx);
     observatory_location(ndx, "Ground", "#ground-based");
     observatory_location(ndx, "Space", "#space-based");
     observatory_location(ndx, "Multiple Locales", "#multiple");
@@ -378,7 +380,7 @@ function exo_discovery_year(ndx) {
 function planets_in_system(ndx) {
 
     var pieChart = dc.pieChart("#planets-in-system");
-    var dim = ndx.dimension(dc.pluck("plnum"));
+    var dim = ndx.dimension(dc.pluck("plnumText"));
     var noOfPlanets = dim.group().reduceSum(dc.pluck("plnum"));
 
     pieChart
@@ -402,6 +404,40 @@ function planets_in_system(ndx) {
             })
             .append('tspan')
             .attr('x', 100)
+            .attr('text-anchor', 'end')
+            .text(function (d) {
+                return d.data;
+            });
+    });
+};
+
+function planets_orbital_period(ndx) {
+
+    var pieChart = dc.pieChart("#planets-orbital-period");
+    var dim = ndx.dimension(dc.pluck("orbcatText"));
+    var noOfPlanets = dim.group().reduceSum(dc.pluck("orbcat"));
+
+    pieChart
+        .width(550)
+        .height(300)        
+        .useViewBoxResizing(true)
+        .innerRadius(50)
+        .externalLabels(30)
+        .externalRadiusPadding(50)
+        .drawPaths(true)
+        .dimension(dim)
+        .group(noOfPlanets)
+        .legend(dc.legend());
+
+    pieChart.on('pretransition', function (chart) {
+        chart.selectAll('.dc-legend-item text')
+            .text('')
+            .append('tspan')
+            .text(function (d) {
+                return d.name;
+            })
+            .append('tspan')
+            .attr('x', 500)
             .attr('text-anchor', 'end')
             .text(function (d) {
                 return d.data;
