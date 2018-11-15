@@ -213,7 +213,7 @@ body {
 #planets-in-system {
     grid-area: planets-in-system;
     padding-top: 50px;
-    width: 33vw;
+    width: 90vw;
     justify-items: center;
 }
 
@@ -230,7 +230,7 @@ body {
 #planets-orbital-period {
     grid-area: planets-orbital-period;
     padding-top: 50px;
-    width: 33vw;
+    width: 90vw;
     justify-items: center;
 }
 
@@ -322,5 +322,13 @@ body {
             "ground-based space-based multiple"
             "disc-year . ."
             "planets-in-system planets-orbital-period .";
+     }
+
+     #planets-in-system {
+         width: 33vw;
+     }
+
+     #planets-orbital-period {
+         width: 33vw;
      }
 };
