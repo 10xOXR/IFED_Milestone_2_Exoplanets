@@ -312,4 +312,15 @@ body {
     #intro h2 {
         font-size: 2vmax;
     }
+
+     /*------------ STATISTCS SECTION -----------*/
+
+     .statistics {
+        grid-template-areas:
+        "resetButton . ."
+        "ground-based space-based multiple"
+        "disc-year . ."
+        ". planets-in-system ."
+        ". planets-orbital-period .";
+     }
 };
