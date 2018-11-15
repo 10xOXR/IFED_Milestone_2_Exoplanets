@@ -173,13 +173,15 @@ body {
 
 .statistics {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas:
-        "resetButton . ."
-        "ground-based space-based multiple"
-        "disc-year . ."
-        ". planets-in-system ."
-        ". planets-orbital-period .";
+        "resetButton"
+        "ground-based"
+        "space-based"
+        "multiple"
+        "disc-year"
+        "planets-in-system"
+        "planets-orbital-period";
     align-items: center;
     justify-items: center;
 }
@@ -317,6 +319,7 @@ body {
      /*------------ STATISTCS SECTION -----------*/
 
      .statistics {
+        grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
             "resetButton . ."
             "ground-based space-based multiple"
