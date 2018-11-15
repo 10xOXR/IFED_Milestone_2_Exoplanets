@@ -178,7 +178,7 @@ body {
         "resetButton . ."
         "ground-based space-based multiple"
         "disc-year . ."
-        "planets-in-system . .";
+        "planets-in-system planets-orbital-period .";
     align-items: center;
     justify-items: center;
 }
@@ -224,6 +224,13 @@ body {
     width: 25vw;
     fill: #FFFFFF;
     shape-rendering: crispEdges;
+}
+
+#planets-orbital-period {
+    grid-area: planets-orbital-period;
+    padding-top: 50px;
+    width: 33vw;
+    justify-items: center;
 }
 
 #disc-year path.domain,
