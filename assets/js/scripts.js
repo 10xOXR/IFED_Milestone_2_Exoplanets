@@ -238,17 +238,19 @@ queue()
 
 function makeGraphs(error, exoPlanetData) {
     var ndx = crossfilter(exoPlanetData);
-
+    
     exoPlanetData.forEach(function (d) {
         d.pl_disc = parseInt(d.pl_disc);
         d.loc_rowid = parseInt(d.loc_rowid);
         d.plnum = parseInt(d.plnum);
         d.pl_orbper = parseFloat(d.pl_orbper);
+        d.pl_rade = parseFloat(d.pl_rade);
     });
 
     exo_discovery_year(ndx);
     planets_in_system(ndx);
     planets_orbital_period(ndx);
+    earth_radii(ndx);
     observatory_location(ndx, "Ground", "#ground-based");
     observatory_location(ndx, "Space", "#space-based");
     observatory_location(ndx, "Multiple Locales", "#multiple");
@@ -338,8 +340,8 @@ function exo_discovery_year(ndx) {
     var transitTimeByMethod = rankByMethod(dim, "Transit Timing Variations");
 
     dc.barChart("#disc-year")
-        .width(950)
-        .height(250)
+        .width(1350)
+        .height(350)
         .gap(10)
         .useViewBoxResizing(true)
         .dimension(dim)
@@ -422,11 +424,45 @@ function planets_orbital_period(ndx) {
         .height(300)        
         .useViewBoxResizing(true)
         .innerRadius(50)
-        .externalLabels(30)
+        .externalLabels(50)
         .externalRadiusPadding(50)
         .drawPaths(true)
         .dimension(dim)
         .group(noOfPlanets)
+        .legend(dc.legend());
+
+    pieChart.on('pretransition', function (chart) {
+        chart.selectAll('.dc-legend-item text')
+            .text('')
+            .append('tspan')
+            .text(function (d) {
+                return d.name;
+            })
+            .append('tspan')
+            .attr('x', 500)
+            .attr('text-anchor', 'end')
+            .text(function (d) {
+                return d.data;
+            });
+    });
+};
+
+function earth_radii(ndx) {
+
+    var pieChart = dc.pieChart("#earth-radii");
+    var dim = ndx.dimension(dc.pluck("radeText"));
+    var earthRadii = dim.group().reduceSum(dc.pluck("rade"));
+
+    pieChart
+        .width(550)
+        .height(300)        
+        .useViewBoxResizing(true)
+        .innerRadius(50)
+        .externalLabels(50)
+        .externalRadiusPadding(50)
+        .drawPaths(true)
+        .dimension(dim)
+        .group(earthRadii)
         .legend(dc.legend());
 
     pieChart.on('pretransition', function (chart) {
