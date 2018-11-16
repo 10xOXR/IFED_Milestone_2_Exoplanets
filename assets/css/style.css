@@ -181,7 +181,8 @@ body {
         "multiple"
         "disc-year"
         "planets-in-system"
-        "planets-orbital-period";
+        "planets-orbital-period"
+        "earth-radii";
     align-items: center;
     justify-items: center;
 }
@@ -212,8 +213,22 @@ body {
     padding-top: 50px;
 }
 
+#planets-orbital-period {
+    grid-area: planets-orbital-period;
+    padding-top: 50px;
+    width: 90vw;
+    justify-items: center;
+}
+
 #planets-in-system {
     grid-area: planets-in-system;
+    padding-top: 50px;
+    width: 90vw;
+    justify-items: center;
+}
+
+#earth-radii {
+    grid-area: earth-radii;
     padding-top: 50px;
     width: 90vw;
     justify-items: center;
@@ -227,13 +242,6 @@ body {
     width: 25vw;
     fill: #FFFFFF;
     shape-rendering: crispEdges;
-}
-
-#planets-orbital-period {
-    grid-area: planets-orbital-period;
-    padding-top: 50px;
-    width: 90vw;
-    justify-items: center;
 }
 
 #disc-year path.domain,
@@ -324,7 +332,7 @@ body {
             "resetButton . ."
             "ground-based space-based multiple"
             "disc-year . ."
-            "planets-in-system planets-orbital-period .";
+            "planets-in-system planets-orbital-period earth-radii";
      }
 
      #disc-year {
@@ -332,10 +340,14 @@ body {
      }
 
      #planets-in-system {
-         width: 33vw;
+         width: 30vw;
      }
 
      #planets-orbital-period {
-         width: 33vw;
+         width: 30vw;
+     }
+
+     #earth-radii {
+         width: 30vw;
      }
 };
