@@ -175,7 +175,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
-        "resetButton"
+        "reset-button"
         "ground-based"
         "space-based"
         "multiple"
@@ -187,9 +187,11 @@ body {
     justify-items: center;
 }
 
-#resetButton {
-    grid-area: resetButton;
+#reset-button {
+    grid-area: reset-button;
     text-decoration: none;
+    align-self: start;
+    justify-self: start;
 }
 
 #resetButton a {    
@@ -200,17 +202,17 @@ body {
 
 #ground-based {
     grid-area: ground-based;
-    padding-top: 50px;
+    padding-top: 30px;
 }
 
 #space-based {
     grid-area: space-based;
-    padding-top: 50px;
+    padding-top: 30px;
 }
 
 #multiple {
     grid-area: multiple;
-    padding-top: 50px;
+    padding-top: 30px;
 }
 
 #planets-orbital-period {
@@ -329,10 +331,28 @@ body {
      .statistics {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
-            "resetButton . ."
+            "reset-button . ."
             "ground-based space-based multiple"
             "disc-year . ."
             "planets-in-system planets-orbital-period earth-radii";
+     }
+
+     #ground-based {         
+        padding-top: 0;
+     }
+
+     #space-based {         
+        padding-top: 0;
+     }
+
+     #multiple {         
+        padding-top: 0;
+     }
+
+     #reset-button {
+         align-self: center;
+         justify-self: center;
+         margin: 15px 0 15px 0;
      }
 
      #disc-year {
