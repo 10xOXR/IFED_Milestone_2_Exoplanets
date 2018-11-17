@@ -232,30 +232,32 @@ d3.timer(function () {
 
 // ------------------------------------- STATISTICS SECTION -------------------------------------
 
-queue()
-    .defer(d3.csv, "assets/data/planets.csv")
-    .await(makeGraphs);
+d3.csv("assets/data/planets.csv").then(makeGraphs);
+dc.config.defaultColors(d3.schemeSet1);
 
-function makeGraphs(error, exoPlanetData) {
+function makeGraphs(exoPlanetData) {
     var ndx = crossfilter(exoPlanetData);
-    
+
     exoPlanetData.forEach(function (d) {
         d.pl_disc = parseInt(d.pl_disc);
         d.loc_rowid = parseInt(d.loc_rowid);
         d.plnum = parseInt(d.plnum);
         d.pl_orbper = parseFloat(d.pl_orbper);
         d.pl_rade = parseFloat(d.pl_rade);
+        d.pl_radj = parseFloat(d.pl_radj);
+        d.st_dist = parseInt(Math.ceil(d.st_dist));
     });
 
     exo_discovery_year(ndx);
     planets_in_system(ndx);
     planets_orbital_period(ndx);
     earth_radii(ndx);
+    //planet_size_vs_distance(ndx)
     observatory_location(ndx, "Ground", "#ground-based");
     observatory_location(ndx, "Space", "#space-based");
     observatory_location(ndx, "Multiple Locales", "#multiple");
 
-    dc.renderAll();
+        dc.renderAll();
 };
 
 function observatory_location(ndx, location, element) {
@@ -326,7 +328,8 @@ function exo_discovery_year(ndx) {
     };
 
     var w = 1150;
-    var h = 450
+    var h = 450;
+    var barChart = dc.barChart("#disc-year")
     var dim = ndx.dimension(dc.pluck("pl_disc"));
     var astroByMethod = rankByMethod(dim, "Astrometry");
     var eclipseTimeVarByMethod = rankByMethod(dim, "Eclipse Timing Variations");
@@ -339,7 +342,7 @@ function exo_discovery_year(ndx) {
     var transitByMethod = rankByMethod(dim, "Transit");
     var transitTimeByMethod = rankByMethod(dim, "Transit Timing Variations");
 
-    dc.barChart("#disc-year")
+    barChart
         .width(1350)
         .height(350)
         .gap(10)
@@ -365,7 +368,7 @@ function exo_discovery_year(ndx) {
         .transitionDuration(500)
         .transitionDelay(500)
         .useViewBoxResizing(true)
-        .x(d3.scale.ordinal())
+        .x(d3.scaleBand())
         .xUnits(dc.units.ordinal)
         .elasticY(true)
         .legend(dc.legend().x(60).y(5).itemHeight(10).gap(5))
@@ -387,7 +390,7 @@ function planets_in_system(ndx) {
 
     pieChart
         .width(550)
-        .height(300)        
+        .height(300)
         .useViewBoxResizing(true)
         .innerRadius(50)
         .externalLabels(30)
@@ -421,7 +424,7 @@ function planets_orbital_period(ndx) {
 
     pieChart
         .width(550)
-        .height(300)        
+        .height(300)
         .useViewBoxResizing(true)
         .innerRadius(50)
         .externalLabels(50)
@@ -455,7 +458,7 @@ function earth_radii(ndx) {
 
     pieChart
         .width(550)
-        .height(300)        
+        .height(300)
         .useViewBoxResizing(true)
         .innerRadius(50)
         .externalLabels(50)
@@ -479,4 +482,44 @@ function earth_radii(ndx) {
                 return d.data;
             });
     });
+};
+
+function planet_size_vs_distance(ndx) {
+
+    var seriesChart = dc.seriesChart("#planet-size-vs-distance");
+    var dim = ndx.dimension(function (d) {
+        return [+d.pl_radj, +d.pl_rade];
+    });
+    var sizeVsDist = dim.group().reduceSum(function(d) { return +d.st_dist; });
+
+    seriesChart
+        .width(768)
+        .height(480)
+        .chart(function (c) {
+            return dc.lineChart(c).curve(d3.curveCardinal);
+        })
+        .x(d3.scaleLinear().domain([0,9000]))
+        .brushOn(false)
+        .yAxisLabel("Planet Radius")
+        .xAxisLabel("Distance (Parsecs)")
+        .clipPadding(10)
+        .elasticY(true)
+        .dimension(dim)
+        .group(sizeVsDist)
+        .mouseZoomable(true)
+        .seriesAccessor(function (d) {
+            return "Expt: " + d.key[0];
+        })
+        .keyAccessor(function (d) {
+            return +d.key[1];
+        })
+        .valueAccessor(function (d) {
+            return +d.value - 500;
+        })
+        .legend(dc.legend().x(350).y(350).itemHeight(13).gap(5).horizontal(1).legendWidth(140).itemWidth(70));
+
+    seriesChart.yAxis().tickFormat(function (d) {
+        return d3.format(',d')(d + 299500);
+    });
+    seriesChart.margins().left += 40;
 };
