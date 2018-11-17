@@ -343,7 +343,7 @@ body {
 #exoplanet-image-1,
 #exoplanet-image-2,
 #exoplanet-image-3 {
-    border: 1px solid #707070;
+    border: 2px solid #707070;
     width: 70vw;
     border-radius: 10px;
 }
@@ -362,6 +362,91 @@ body {
     grid-area: exoplanet-image-3;
     content: url("../images/exoplanet-3.jpg");
 }
+
+/*-------------------------------------------- TERMINOLOGY SECTION --------------------------------------------*/
+
+.terminology {
+    display: grid;
+    grid-template-columns: 3vw 1fr 3vw;
+    grid-template-areas:
+        ". terminology-header ."
+        ". parsec-image ."
+        ". parsec-text ."
+        ". astro-unit-image ."
+        ". astro-unit-text ."
+        ". orbital-motion-image ."
+        ". orbital-motion-text .";
+    justify-items: center;
+    align-items: center;
+    align-self: center;
+    letter-spacing: 2px;
+}
+
+#terminology-header {
+    grid-area: terminology-header;
+    text-align: center;
+    font-size: 2.5vmax;
+    color: #FFF76B;
+    margin-top: 20px;
+}
+
+#terminology-header h1 {
+    margin-top: 25px;
+}
+
+#terminology-header h2 {
+    font-size: 2vmax;
+    color: #ffffff;
+}
+
+#parsec-text,
+#astro-unit-text,
+#orbital-motion-text {
+    font-family: 'Microgramma Regular', Arial, sans-serif;
+    font-size: 1.7vmax;
+    background-color: rgba(112,112,112,0.3);
+    border-radius: 10px;
+    padding: 10px;
+    text-shadow: 2px 2px 2px #000000;
+    margin-bottom: 25px;
+}
+
+#parsec-text {    
+    grid-area: parsec-text;
+}
+
+#astro-unit-text {
+    grid-area: astro-unit-text;
+}
+
+#orbital-motion-text {
+    grid-area: orbital-motion-text;
+}
+
+#parsec-image,
+#astro-unit-image,
+#orbital-motion-image {
+    border: 2px solid #707070;
+    width: 70vw;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+#parsec-image {    
+    grid-area: parsec-image;
+    content: url("../images/VLBAparallax.jpg");
+}
+
+#astro-unit-image {    
+    grid-area: astro-unit-image;
+    content: url("../images/earthSun.jpg");
+}
+
+#orbital-motion-image {    
+    grid-area: orbital-motion-image;
+    content: url("../images/orbits.jpg");
+}
+
 
 /*-------------------------------------------- MEDIA QUERIES --------------------------------------------*/
 
@@ -423,14 +508,8 @@ body {
             "planet-size-vs-distance . .";
      }
 
-     #ground-based {         
-        padding-top: 0;
-     }
-
-     #space-based {         
-        padding-top: 0;
-     }
-
+     #ground-based,
+     #space-based,
      #multiple {         
         padding-top: 0;
      }
@@ -445,14 +524,8 @@ body {
         justify-self: center;
      }
 
-     #planets-in-system {
-         width: 30vw;
-     }
-
-     #planets-orbital-period {
-         width: 30vw;
-     }
-
+     #planets-in-system,
+     #planets-orbital-period,
      #earth-radii {
          width: 30vw;
      }
@@ -480,5 +553,29 @@ body {
         padding: 25px;
         width: 100%;
         margin-bottom: 25px;
+    }
+
+    /*------------ TERMINOLOGY SECTION -----------*/
+
+    .terminology {
+        display: grid;
+        grid-template-columns: 3vw minmax(35vw, auto) 2vw minmax(40vw, auto) 3vw;
+        grid-template-areas:
+            ". terminology-header terminology-header terminology-header ."
+            ". parsec-image . parsec-text ."
+            ". astro-unit-image . astro-unit-text ."
+            ". orbital-motion-image . orbital-motion-text .";
+    }
+    
+    #parsec-image,
+    #astro-unit-image,
+    #orbital-motion-image {
+        width: 42.5vw;
+    }
+
+    #parsec-text,
+    #astro-unit-text,
+    #orbital-motion-text {
+        font-size: 1.3vmax;
     }
 };
