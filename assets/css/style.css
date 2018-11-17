@@ -19,6 +19,7 @@
 
 * {
     box-sizing: border-box;
+    letter-spacing: 2px;
 }
 
 body {
@@ -70,7 +71,7 @@ body {
     position: relative;
     list-style-type: none;
     padding: 0;
-    color: #707070;
+    color: #ffffff;
     text-align: center;
     background-color: rgba(112,112,112,.4);
     letter-spacing: 2px;
@@ -82,13 +83,17 @@ body {
 
 .navbar li {
     line-height: 50px;
+    text-shadow: 2px 2px 2px #000000;
 }
 
 .navbar li:hover {
     cursor: pointer;
-    color: #FFFFFF;
     transition: all .3s ease-in-out;
     background-color: rgba(255, 244, 145, .5);
+}
+
+.navbar li.selected:hover {
+    background-color: unset;
 }
 
 .selected {
@@ -101,7 +106,7 @@ body {
 }
 
 #menu-toggle .fa-bars {
-    color: #707070;
+    color: #ffffff;
     font-size: 2em;
 }
 
@@ -290,6 +295,74 @@ body {
     letter-spacing: 1.2px;
 }
 
+/*-------------------------------------------- EXOPLANETS SECTION --------------------------------------------*/
+
+.exoplanets {
+    display: grid;
+    grid-template-columns: 3vw 1fr 3vw;
+    grid-template-areas:
+        ". exoplanet-header ."
+        ". exoplanet-text-1 ."
+        ". exoplanet-image-1 ."
+        ". exoplanet-image-2 ."
+        ". exoplanet-text-2 ."
+        ". exoplanet-image-3 .";
+    justify-items: center;
+    align-items: start;
+    align-self: start;
+    letter-spacing: 2px;
+}
+
+#exoplanet-header {
+    grid-area: exoplanet-header;
+    text-align: center;
+    font-family: 'Microgramma Bold Ext', Arial, sans-serif;
+    font-size: 1.8vmax;
+    color: #FFF76B;
+    margin-top: 20px;
+}
+
+#exoplanet-text-1,
+#exoplanet-text-2 {
+    font-family: 'Microgramma Regular', Arial, sans-serif;
+    font-size: 1.7vmax;
+    background-color: rgba(112,112,112,0.3);
+    border-radius: 10px;
+    padding: 10px;
+    text-shadow: 2px 2px 2px #000000;
+}
+
+#exoplanet-text-1 {
+    grid-area: exoplanet-text-1;
+}
+
+#exoplanet-text-2 {
+    grid-area: exoplanet-text-2;
+}
+
+#exoplanet-image-1,
+#exoplanet-image-2,
+#exoplanet-image-3 {
+    border: 1px solid #707070;
+    width: 70vw;
+    border-radius: 10px;
+}
+
+#exoplanet-image-1 {
+    grid-area: exoplanet-image-1;
+    content: url("../images/exoplanet-1.jpg");    
+}
+
+#exoplanet-image-2 {
+    grid-area: exoplanet-image-2;
+    content: url("../images/exoplanet-2.jpg");
+}
+
+#exoplanet-image-3 {
+    grid-area: exoplanet-image-3;
+    content: url("../images/exoplanet-3.jpg");
+}
+
 /*-------------------------------------------- MEDIA QUERIES --------------------------------------------*/
 
 @media (min-width: 820px) {
@@ -315,6 +388,7 @@ body {
 
     .navbar li:hover {
         background-color: unset;
+        color: #fff291;
     }
 
     #menu-toggle {
@@ -382,4 +456,29 @@ body {
      #earth-radii {
          width: 30vw;
      }
+
+    /*------------ STATISTCS SECTION -----------*/
+
+     .exoplanets {
+        display: grid;
+        grid-template-columns: 3vw minmax(50vw, auto) 3vw minmax(20vw, auto) 3vw;
+        grid-template-areas:
+            ". exoplanet-header exoplanet-header exoplanet-header ."
+            ". exoplanet-text-1 . exoplanet-image-1 ."
+            ". exoplanet-text-2 . exoplanet-image-2 ."
+            ". exoplanet-text-2 . exoplanet-image-3 .";
+     }
+
+     #exoplanet-image-1,
+     #exoplanet-image-2,
+     #exoplanet-image-3 {
+         width: 30vw;
+     }
+
+    #exoplanet-text-1,
+    #exoplanet-text-2 {
+        padding: 25px;
+        width: 100%;
+        margin-bottom: 25px;
+    }
 };
