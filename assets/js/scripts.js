@@ -233,7 +233,7 @@ d3.timer(function () {
 // ------------------------------------- STATISTICS SECTION -------------------------------------
 
 d3.csv("assets/data/planets.csv").then(makeGraphs);
-dc.config.defaultColors(d3.schemeSet1);
+dc.config.defaultColors(d3.schemeSet2);
 
 function makeGraphs(exoPlanetData) {
     var ndx = crossfilter(exoPlanetData);
@@ -257,7 +257,7 @@ function makeGraphs(exoPlanetData) {
     observatory_location(ndx, "Space", "#space-based");
     observatory_location(ndx, "Multiple Locales", "#multiple");
 
-        dc.renderAll();
+    dc.renderAll();
 };
 
 function observatory_location(ndx, location, element) {
@@ -490,7 +490,9 @@ function planet_size_vs_distance(ndx) {
     var dim = ndx.dimension(function (d) {
         return [+d.pl_radj, +d.pl_rade];
     });
-    var sizeVsDist = dim.group().reduceSum(function(d) { return +d.st_dist; });
+    var sizeVsDist = dim.group().reduceSum(function (d) {
+        return +d.st_dist;
+    });
 
     seriesChart
         .width(768)
@@ -498,7 +500,7 @@ function planet_size_vs_distance(ndx) {
         .chart(function (c) {
             return dc.lineChart(c).curve(d3.curveCardinal);
         })
-        .x(d3.scaleLinear().domain([0,9000]))
+        .x(d3.scaleLinear().domain([0, 100]))
         .brushOn(false)
         .yAxisLabel("Planet Radius")
         .xAxisLabel("Distance (Parsecs)")
@@ -513,13 +515,13 @@ function planet_size_vs_distance(ndx) {
         .keyAccessor(function (d) {
             return +d.key[1];
         })
-        .valueAccessor(function (d) {
+        /*.valueAccessor(function (d) {
             return +d.value - 500;
-        })
+        })*/
         .legend(dc.legend().x(350).y(350).itemHeight(13).gap(5).horizontal(1).legendWidth(140).itemWidth(70));
 
     seriesChart.yAxis().tickFormat(function (d) {
-        return d3.format(',d')(d + 299500);
+        return d3.format(',d')(d + 0);
     });
     seriesChart.margins().left += 40;
 };
