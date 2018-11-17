@@ -182,7 +182,8 @@ body {
         "disc-year"
         "planets-in-system"
         "planets-orbital-period"
-        "earth-radii";
+        "earth-radii"
+        "planet-size-vs-distance";
     align-items: center;
     justify-items: center;
 }
@@ -234,6 +235,16 @@ body {
     padding-top: 50px;
     width: 90vw;
     justify-items: center;
+}
+
+#planet-size-vs-distance {
+    grid-area: planet-size-vs-distance;
+    align-self: center;
+    justify-self: left;
+    padding-top: 50px;
+    width: 25vw;
+    fill: #FFFFFF;
+    shape-rendering: crispEdges;
 }
 
 #disc-year {
@@ -334,7 +345,8 @@ body {
             "reset-button . ."
             "ground-based space-based multiple"
             "disc-year . ."
-            "planets-in-system planets-orbital-period earth-radii";
+            "planets-in-system planets-orbital-period earth-radii"
+            "planet-size-vs-distance . .";
      }
 
      #ground-based {         
