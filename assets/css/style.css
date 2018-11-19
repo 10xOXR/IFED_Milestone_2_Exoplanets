@@ -344,7 +344,7 @@ body {
 #exoplanet-image-2,
 #exoplanet-image-3 {
     border: 2px solid #707070;
-    width: 70vw;
+    width: 80vw;
     border-radius: 10px;
 }
 
@@ -427,7 +427,7 @@ body {
 #astro-unit-image,
 #orbital-motion-image {
     border: 2px solid #707070;
-    width: 70vw;
+    width: 80vw;
     border-radius: 10px;
     margin-bottom: 25px;
 }
@@ -447,6 +447,74 @@ body {
     content: url("../images/orbits.jpg");
 }
 
+/*-------------------------------------------- METHODOLOGY SECTION --------------------------------------------*/
+
+.methodology {    
+    display: grid;
+    grid-template-columns: 3vw 1fr 3vw;
+    grid-template-areas:
+        ". method-header ."
+        ". rad-velocity-video ."
+        ". rad-velocity-text ."
+        ". microlensing-video ."
+        ". microlensing-text .";
+    justify-items: center;
+    align-items: center;
+    align-self: center;
+    letter-spacing: 2px;
+}
+
+#rad-velocity-text,
+#microlensing-text {
+    font-family: 'Microgramma Regular', Arial, sans-serif;
+    font-size: 1.7vmax;
+    background-color: rgba(112,112,112,0.3);
+    border-radius: 10px;
+    padding: 10px;
+    text-shadow: 2px 2px 2px #000000;
+    margin-bottom: 25px;
+}
+
+#method-header {
+    grid-area: method-header;
+    text-align: center;
+    font-size: 2.5vmax;
+    color: #FFF76B;
+    margin-top: 20px;
+}
+
+#method-header h1 {
+    margin-top: 25px;
+}
+
+#method-header h2 {
+    font-size: 2vmax;
+    color: #ffffff;
+}
+
+#rad-velocity-text {
+    grid-area: rad-velocity-text;
+}
+
+#microlensing-text {
+    grid-area: microlensing-text;
+}
+
+#rad-velocity-video,
+#microlensing-video {
+    border: 2px solid #707070;
+    width: 80vw;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+#rad-velocity-video {
+    grid-area: rad-velocity-video;
+}
+
+#microlensing-video {
+    grid-area: microlensing-video;
+}
 
 /*-------------------------------------------- MEDIA QUERIES --------------------------------------------*/
 
@@ -530,7 +598,7 @@ body {
          width: 30vw;
      }
 
-    /*------------ STATISTCS SECTION -----------*/
+    /*------------ EXOPLANETS SECTION -----------*/
 
      .exoplanets {
         display: grid;
@@ -576,6 +644,27 @@ body {
     #parsec-text,
     #astro-unit-text,
     #orbital-motion-text {
+        font-size: 1.3vmax;
+    }
+
+    /*------------ METHIDOLOGY SECTION -----------*/
+
+    .methodology {
+        display: grid;
+        grid-template-columns: 3vw minmax(35vw, auto) 2vw minmax(40vw, auto) 3vw;
+        grid-template-areas:
+            ". method-header method-header method-header ."
+            ". rad-velocity-video . rad-velocity-text ."
+            ". microlensing-video . microlensing-text .";
+    }
+    
+    #rad-velocity-video,
+    #microlensing-video {
+        width: 42.5vw;
+    }
+
+    #rad-velocity-text,
+    #microlensing-text {
         font-size: 1.3vmax;
     }
 };
