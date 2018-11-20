@@ -346,6 +346,11 @@ body {
     border: 2px solid #707070;
     width: 80vw;
     border-radius: 10px;
+    margin: 25px 0;
+}
+
+#exoplanet-image-1 {
+    margin-bottom: 0;
 }
 
 #exoplanet-image-1 {
@@ -457,7 +462,13 @@ body {
         ". rad-velocity-video ."
         ". rad-velocity-text ."
         ". microlensing-video ."
-        ". microlensing-text .";
+        ". microlensing-text ."
+        ". transit-method-image ."
+        ". transit-method-text ."
+        ". direct-imaging-image ."
+        ". direct-imaging-text ."
+        ". pulsar-timing-image ."
+        ". pulsar-timing-text .";
     justify-items: center;
     align-items: center;
     align-self: center;
@@ -465,7 +476,10 @@ body {
 }
 
 #rad-velocity-text,
-#microlensing-text {
+#microlensing-text,
+#transit-method-text,
+#pulsar-timing-text,
+#direct-imaging-text {
     font-family: 'Microgramma Regular', Arial, sans-serif;
     font-size: 1.7vmax;
     background-color: rgba(112,112,112,0.3);
@@ -500,8 +514,23 @@ body {
     grid-area: microlensing-text;
 }
 
+#transit-method-text {
+    grid-area: transit-method-text;
+}
+
+#pulsar-timing-text {
+    grid-area: pulsar-timing-text;
+}
+
+#direct-imaging-text {
+    grid-area: direct-imaging-text;
+}
+
 #rad-velocity-video,
-#microlensing-video {
+#microlensing-video,
+#transit-method-image,
+#pulsar-timing-image,
+#direct-imaging-image {
     border: 2px solid #707070;
     width: 80vw;
     border-radius: 10px;
@@ -514,6 +543,21 @@ body {
 
 #microlensing-video {
     grid-area: microlensing-video;
+}
+
+#transit-method-image {
+    grid-area: transit-method-image;
+    content: url("../images/transitgif2.gif");
+}
+
+#direct-imaging-image {
+    grid-area: direct-imaging-image;
+    content: url("../images/HR_8799_Orbiting_Exoplanets.gif");
+}
+
+#pulsar-timing-image {
+    grid-area: pulsar-timing-image;
+    content: url("../images/PSR_B1257_12_system.jpg");
 }
 
 /*-------------------------------------------- MEDIA QUERIES --------------------------------------------*/
@@ -655,16 +699,25 @@ body {
         grid-template-areas:
             ". method-header method-header method-header ."
             ". rad-velocity-video . rad-velocity-text ."
-            ". microlensing-video . microlensing-text .";
+            ". microlensing-video . microlensing-text ."
+            ". transit-method-image . transit-method-text ."
+            ". direct-imaging-image . direct-imaging-text ."
+            ". pulsar-timing-image . pulsar-timing-text .";
     }
     
     #rad-velocity-video,
-    #microlensing-video {
+    #microlensing-video,
+    #transit-method-image,
+    #pulsar-timing-image,
+    #direct-imaging-image {
         width: 42.5vw;
     }
 
     #rad-velocity-text,
-    #microlensing-text {
+    #microlensing-text,
+    #transit-method-text,
+    #pulsar-timing-text,
+    #direct-imaging-text {
         font-size: 1.3vmax;
     }
 };
