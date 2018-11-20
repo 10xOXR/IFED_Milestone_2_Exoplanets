@@ -613,12 +613,7 @@ body {
     color: #ffffff;
 }
 
-.resources ul {
-    padding: 0;
-}
-
 .resources li {
-    list-style-type: none;
     padding: 0;
     color: #ffffff;
     text-align: left;
