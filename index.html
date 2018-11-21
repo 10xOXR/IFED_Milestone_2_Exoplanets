@@ -53,25 +53,22 @@
                 <header id="statistics-header">
                     <h1>EXOPLANET STATISTICS</h1>
                 </header>
-                <h3 id="disc-year-title">Exoplanets by Year of Discovery and Method</h3>
-                <div id="disc-year">
-                </div>
+                
+                <div id="disc-year"><p id="disc-year-title">Exoplanets by Year of Discovery and Method <span>(excl. Transit Method)</span></p></div>
                 <div id="ground-based">
-                    <h3>Ground-Based</h3>
+                    <h3>Ground-Based: <span id="ground-based-percent"></span></h3>
                 </div>
                 <div id="space-based">
-                    <h3>Space-Based</h3>
+                    <h3>Space-Based: <span id="space-based-percent"></span></h3>
                 </div>
                 <div id="multiple">
-                    <h3>Multiple Locales</h3>
+                    <h3>Multiple Locales: <span id="multiple-percent"></span></h3>
                 </div>
-                <div id="planets-in-system"></div>
-                <div id="planets-orbital-period"></div>
-                <div id="earth-radii"></div>
+                <div id="planets-in-system"><p>Planets in System</p></div>
+                <div id="planets-orbital-period"><p>Orbital Period (Days)</p></div>
+                <div id="earth-radii">Size compared to Earth (Earth-radii)</div>
                 <div id="planet-size-vs-distance"></div>
-                <div id="reset-button">
-                    <button id="resetButton"><a href="javascript:dc.filterAll(); dc.renderAll();">Reset</a></button>
-                </div>
+                <button id="reset-button"><a href="javascript:dc.filterAll(); dc.renderAll();">Reset</a></button>
             </section>
 
             <section class="exoplanets">

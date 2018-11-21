@@ -245,9 +245,9 @@ function makeGraphs(exoPlanetData) {
 	planets_orbital_period(ndx);
 	earth_radii(ndx);
 	//planet_size_vs_distance(ndx)
-	observatory_location(ndx, "Ground", "#ground-based");
-	observatory_location(ndx, "Space", "#space-based");
-	observatory_location(ndx, "Multiple Locales", "#multiple");
+	observatory_location(ndx, "Ground", "#ground-based-percent");
+	observatory_location(ndx, "Space", "#space-based-percent");
+	observatory_location(ndx, "Multiple Locales", "#multiple-percent");
 
 	dc.renderAll();
 }
@@ -398,7 +398,7 @@ function planets_in_system(ndx) {
 				return d.name;
 			})
 			.append('tspan')
-			.attr('x', 100)
+			.attr('x', 500)
 			.attr('text-anchor', 'end')
 			.text(function(d) {
 				return d.data;
@@ -478,10 +478,10 @@ function planet_size_vs_distance(ndx) {
 
 	var seriesChart = dc.seriesChart("#planet-size-vs-distance");
 	var dim = ndx.dimension(function(d) {
-		return [+d.pl_radj, +d.pl_rade];
+		return [d.pl_radj, d.pl_rade];
 	});
 	var sizeVsDist = dim.group().reduceSum(function(d) {
-		return +d.st_dist;
+		return d.st_dist;
 	});
 
 	seriesChart
@@ -505,9 +505,9 @@ function planet_size_vs_distance(ndx) {
 		.keyAccessor(function(d) {
 			return +d.key[1];
 		})
-		/*.valueAccessor(function (d) {
+		.valueAccessor(function (d) {
 		    return +d.value - 500;
-		})*/
+		})
 		.legend(dc.legend().x(350).y(350).itemHeight(13).gap(5).horizontal(1).legendWidth(140).itemWidth(70));
 
 	seriesChart.yAxis().tickFormat(function(d) {
