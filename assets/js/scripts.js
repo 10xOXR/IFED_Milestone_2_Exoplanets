@@ -329,7 +329,6 @@ function exo_discovery_year(ndx) {
 	var pulsarTimeByMethod = rankByMethod(dim, "Pulsar Timing");
 	var pulsarTimeVarByMethod = rankByMethod(dim, "Pulsation Timing Variations");
 	var radialVelByMethod = rankByMethod(dim, "Radial Velocity");
-	var transitByMethod = rankByMethod(dim, "Transit");
 	var transitTimeByMethod = rankByMethod(dim, "Transit Timing Variations");
 
 	barChart
@@ -339,7 +338,6 @@ function exo_discovery_year(ndx) {
 		.useViewBoxResizing(true)
 		.dimension(dim)
 		.group(radialVelByMethod, "Radial Velocity")
-		//.stack(radialVelByMethod, "Radial Velocity")
 		.stack(imageByMethod, "Imaging")
 		.stack(astroByMethod, "Astrometry")
 		.stack(eclipseTimeVarByMethod, "Eclipse Timing Variations")

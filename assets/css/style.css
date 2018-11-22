@@ -3,7 +3,7 @@
 @font-face {
     font-family: 'Microgramma Bold Ext';
     src: url('../fonts/microgramma-webfont.woff2') format('woff2'),
-         url('../fonts/microgramma-webfont.woff') format('woff');
+        url('../fonts/microgramma-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -11,7 +11,7 @@
 @font-face {
     font-family: 'Microgramma Regular';
     src: url('../fonts/microgrammadeemedext_regular-webfont.woff2') format('woff2'),
-         url('../fonts/microgrammadeemedext_regular-webfont.woff') format('woff');
+        url('../fonts/microgrammadeemedext_regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -73,7 +73,7 @@ body {
     padding: 0;
     color: #ffffff;
     text-align: center;
-    background-color: rgba(112,112,112,.4);
+    background-color: rgba(112, 112, 112, .4);
     letter-spacing: 2px;
 }
 
@@ -138,13 +138,13 @@ body {
     font-size: 5vmax;
     color: #FFF76B;
     margin: 0 auto;
-    text-shadow: 4px 4px 5px rgba(112, 112, 112, 1);
+    text-shadow: 4px 4px 5px rgb(112, 112, 112);
 }
 
 #intro h2 {
     font-size: 2.5vmax;
     margin: 10px 0 20px 0;
-    text-shadow: 2px 2px 2px rgba(112, 112, 112, 1);
+    text-shadow: 2px 2px 2px rgb(112, 112, 112);
 }
 
 #intro button,
@@ -155,7 +155,7 @@ body {
     font-family: 'Microgramma Bold Ext', Arial, sans-serif;
     font-size: 1.7vmax;
     border: none;
-    background-color: #d3c13a;
+    background-color: #FFF76B;
     transition: all .3s ease-in-out;
     text-shadow: 2px 2px 2px rgba(255, 255, 255, 1);
 }
@@ -185,11 +185,12 @@ body {
     grid-template-columns: 3vw 1fr 3vw;
     grid-template-areas:
         ". statistics-header ."
+        ". observe-loc ."
         ". ground-based ."
         ". space-based ."
         ". multiple ."
         ". disc-year-title ."
-        ". disc-year ." 
+        ". disc-year ."
         ". planets-in-system ."
         ". planets-orbital-period ."
         ". earth-radii ."
@@ -209,9 +210,10 @@ body {
 
 #reset-button {
     grid-area: reset-button;
+    margin-bottom: 25px;
 }
 
-#reset-button a {    
+#reset-button a {
     text-decoration: none;
     color: #000000;
 }
@@ -219,14 +221,26 @@ body {
 #ground-based,
 #space-based,
 #multiple {
-    padding-top: 30px;
-    color: #ffffff;  
+    color: #ffffff;
+    font-size: 2vmax;
+    text-shadow: 2px 2px 2px rgb(112, 112, 112);
+}
+
+#observe-loc {
+    font-size: 3vmax;
+    margin-bottom: 0;
+    text-shadow: 2px 2px 2px rgb(112, 112, 112);
 }
 
 #ground-based span,
 #space-based span,
-#multiple span{
-    color: #FFF76B;  
+#multiple span {
+    color: #FFF76B;
+    text-shadow: 2px 2px 2px rgb(112, 112, 112);
+}
+
+#observe-loc {
+    grid-area: observe-loc;
 }
 
 #ground-based {
@@ -243,23 +257,27 @@ body {
 
 #planets-orbital-period {
     grid-area: planets-orbital-period;
-    padding-top: 50px;
-    width: 90vw;
-    justify-items: center;
 }
 
 #planets-in-system {
     grid-area: planets-in-system;
-    padding-top: 50px;
-    width: 90vw;
-    justify-items: center;
 }
 
 #earth-radii {
     grid-area: earth-radii;
-    padding-top: 50px;
+}
+
+#planets-orbital-period,
+#planets-in-system,
+#earth-radii {
     width: 90vw;
     justify-items: center;
+    text-align: center;
+    font-size: 2vmax;
+}
+
+#earth-radii span {
+    font-size: 1.5vmax;
 }
 
 #planet-size-vs-distance {
@@ -276,7 +294,6 @@ body {
     grid-area: disc-year;
     align-self: center;
     justify-self: left;
-    padding-top: 50px;
     width: 25vw;
     fill: #FFFFFF;
     shape-rendering: crispEdges;
@@ -284,6 +301,8 @@ body {
 
 #disc-year-title {
     grid-area: disc-year-title;
+    font-size: 1.3vmax;
+    padding-top: 25px;
 }
 
 #disc-year path.domain,
@@ -309,9 +328,15 @@ body {
     font-family: 'Microgramma Regular', Arial, sans-serif;
 }
 
+#disc-year.dc-chart svg,
+#planets-orbital-period.dc-chart svg,
+#planets-in-system.dc-chart svg,
+#earth-radii.dc-chart svg {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 #disc-year.dc-chart svg {
     width: 90vw;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #disc-year.dc-chart svg g.dc-legend text {
@@ -350,7 +375,7 @@ body {
 #exoplanet-text-2 {
     font-family: 'Microgramma Regular', Arial, sans-serif;
     font-size: 1.7vmax;
-    background-color: rgba(112,112,112,0.3);
+    background-color: rgba(112, 112, 112, 0.3);
     border-radius: 10px;
     padding: 10px;
     text-shadow: 2px 2px 2px #000000;
@@ -379,7 +404,7 @@ body {
 
 #exoplanet-image-1 {
     grid-area: exoplanet-image-1;
-    content: url("../images/exoplanet-1.jpg");    
+    content: url("../images/exoplanet-1.jpg");
 }
 
 #exoplanet-image-2 {
@@ -433,14 +458,14 @@ body {
 #orbital-motion-text {
     font-family: 'Microgramma Regular', Arial, sans-serif;
     font-size: 1.7vmax;
-    background-color: rgba(112,112,112,0.3);
+    background-color: rgba(112, 112, 112, 0.3);
     border-radius: 10px;
     padding: 10px;
     text-shadow: 2px 2px 2px #000000;
     margin-bottom: 25px;
 }
 
-#parsec-text {    
+#parsec-text {
     grid-area: parsec-text;
 }
 
@@ -461,24 +486,24 @@ body {
     margin-bottom: 25px;
 }
 
-#parsec-image {    
+#parsec-image {
     grid-area: parsec-image;
     content: url("../images/VLBAparallax.jpg");
 }
 
-#astro-unit-image {    
+#astro-unit-image {
     grid-area: astro-unit-image;
     content: url("../images/earthSun.jpg");
 }
 
-#orbital-motion-image {    
+#orbital-motion-image {
     grid-area: orbital-motion-image;
     content: url("../images/orbits.jpg");
 }
 
 /*-------------------------------------------- METHODOLOGY SECTION --------------------------------------------*/
 
-.methodology {    
+.methodology {
     display: grid;
     grid-template-columns: 3vw 1fr 3vw;
     grid-template-areas:
@@ -506,7 +531,7 @@ body {
 #direct-imaging-text {
     font-family: 'Microgramma Regular', Arial, sans-serif;
     font-size: 1.7vmax;
-    background-color: rgba(112,112,112,0.3);
+    background-color: rgba(112, 112, 112, 0.3);
     border-radius: 10px;
     padding: 10px;
     text-shadow: 2px 2px 2px #000000;
@@ -586,7 +611,7 @@ body {
 
 /*-------------------------------------------- FURTHER RESOURCES SECTION --------------------------------------------*/
 
-.resources {    
+.resources {
     display: grid;
     grid-template-columns: 3vw 1fr 3vw;
     grid-template-areas:
@@ -610,7 +635,7 @@ body {
     grid-area: resources-text;
     font-family: 'Microgramma Regular', Arial, sans-serif;
     font-size: 1.7vmax;
-    background-color: rgba(112,112,112,0.3);
+    background-color: rgba(112, 112, 112, 0.3);
     border-radius: 10px;
     padding: 30px;
     text-shadow: 2px 2px 2px #000000;
@@ -642,7 +667,7 @@ body {
 @media (min-width: 820px) {
 
     /*------------ NAVBAR -----------*/
-        
+
     .navbar {
         margin: 15px 0 0 0;
         padding: 0;
@@ -685,45 +710,71 @@ body {
         font-size: 2vmax;
     }
 
-     /*------------ STATISTCS SECTION -----------*/
+    /*------------ STATISTCS SECTION -----------*/
 
-     .statistics {
+    .statistics {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
             "statistics-header statistics-header statistics-header"
+            "observe-loc observe-loc observe-loc"
             "ground-based space-based multiple"
             "disc-year-title disc-year-title disc-year-title"
             "disc-year . ."
             "planets-in-system planets-orbital-period earth-radii"
-            "planet-size-vs-distance . ."        
+            "planet-size-vs-distance . ."
             ". reset-button .";
-     }
+    }
 
-     #ground-based,
-     #space-based,
-     #multiple {         
+    #ground-based,
+    #space-based,
+    #multiple {
         padding-top: 0;
-     }
+        font-size: 1.3vmax;
+    }
 
-     #reset-button {
-         align-self: center;
-         justify-self: center;
-         margin: 15px 0 15px 0;
-     }
+    #observe-loc {
+        font-size: 1.8vmax;
+    }
 
-     #disc-year {
+    #reset-button {
+        align-self: center;
         justify-self: center;
-     }
+        margin: 15px 0 15px 0;
+    }
 
-     #planets-in-system,
-     #planets-orbital-period,
-     #earth-radii {
-         width: 30vw;
-     }
+    #disc-year {
+        justify-self: center;
+        padding-top: 0;
+    }
+
+    #planets-in-system,
+    #planets-orbital-period,
+    #earth-radii {
+        font-size: 1.2vmax
+    }
+
+    #disc-year-title {
+        font-size: 1.5vmax
+    }
+
+    #disc-year-title span {
+        font-size: 1vmax
+    }
+
+    #planets-in-system,
+    #planets-orbital-period,
+    #earth-radii {
+        width: 30vw;
+        text-align: center;
+    }
+
+    #earth-radii span {
+        font-size: 1vmax;
+    }
 
     /*------------ EXOPLANETS SECTION -----------*/
 
-     .exoplanets {
+    .exoplanets {
         display: grid;
         grid-template-columns: 3vw minmax(50vw, auto) 3vw minmax(20vw, auto) 3vw;
         grid-template-areas:
@@ -731,13 +782,13 @@ body {
             ". exoplanet-text-1 . exoplanet-image-1 ."
             ". exoplanet-text-2 . exoplanet-image-2 ."
             ". exoplanet-text-2 . exoplanet-image-3 .";
-     }
+    }
 
-     #exoplanet-image-1,
-     #exoplanet-image-2,
-     #exoplanet-image-3 {
-         width: 30vw;
-     }
+    #exoplanet-image-1,
+    #exoplanet-image-2,
+    #exoplanet-image-3 {
+        width: 30vw;
+    }
 
     #exoplanet-text-1,
     #exoplanet-text-2 {
@@ -757,7 +808,7 @@ body {
             ". astro-unit-image . astro-unit-text ."
             ". orbital-motion-image . orbital-motion-text .";
     }
-    
+
     #parsec-image,
     #astro-unit-image,
     #orbital-motion-image {
@@ -783,7 +834,7 @@ body {
             ". direct-imaging-image . direct-imaging-text ."
             ". pulsar-timing-image . pulsar-timing-text .";
     }
-    
+
     #rad-velocity-video,
     #microlensing-video,
     #transit-method-image,
@@ -799,4 +850,6 @@ body {
     #direct-imaging-text {
         font-size: 1.3vmax;
     }
-};
+}
+
+;
