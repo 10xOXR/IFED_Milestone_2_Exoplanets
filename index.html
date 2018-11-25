@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" type="text/css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
-    <!-- favicon -->
+    <!-- FAVICON -->
     <link rel='icon' sizes="192x192" href="assets/images/favicon.png" type="image/x-icon">
 
     <title>Exoplanets | and How to Find Them!</title>
@@ -40,6 +40,7 @@
         <!-- MAIN SECTION -->
         <main id="main">
 
+            <!-- HOME SECTION -->
             <section class="home">
                 <aside id="planets"></aside>
                 <header id="intro">
@@ -49,6 +50,7 @@
                 </header>
             </section>
 
+            <!-- STATISTICS SECTION -->
             <section class="statistics">
                 <header id="statistics-header">
                     <h1>EXOPLANET STATISTICS</h1>
@@ -63,16 +65,23 @@
                 <div id="multiple">
                     <h3>Multiple Locales: <span id="multiple-percent"></span></h3>
                 </div>
-                <p id="disc-year-title">Year of Discovery & Method <span>(excl. Transit Method)</span></p>
+                <p id="disc-year-title">Year of Discovery & Method <span>(w/o Transit)</span></p>
                 <div id="disc-year"></div>
                 <p id="planet-number-title">Discoveries vs Distance</p>
                 <div id="planet-number-vs-distance"></div>
-                <div id="planets-in-system"><p>Planets in System</p></div>
-                <div id="planets-orbital-period"><p>Orbital Period (Days)</p></div>
-                <div id="earth-radii"><p>Size compared to Earth <span>(Earth-radii)</span></p></div>
+                <div id="planets-in-system">
+                    <p>Planets in System</p>
+                </div>
+                <div id="planets-orbital-period">
+                    <p>Orbital Period (Days)</p>
+                </div>
+                <div id="earth-radii">
+                    <p>Size compared to Earth <span>(Earth-radii)</span></p>
+                </div>
                 <button id="reset-button"><a href="javascript:dc.filterAll(); dc.renderAll();">Reset</a></button>
             </section>
 
+            <!-- EXOPLANETS SECTION -->
             <section class="exoplanets">
                 <header id="exoplanet-header">
                     <h1>WHAT IS AN EXOPLANET?</h1>
@@ -100,6 +109,7 @@
                 <image id="exoplanet-image-3"></image>
             </section>
 
+            <!-- TERMINOLOGY SECTION -->
             <section class="terminology">
                 <header id="terminology-header">
                     <h1>A PAR-WHAT?</h1>
@@ -139,6 +149,7 @@
                 <image id="orbital-motion-image"></image>
             </section>
 
+            <!-- METHODOLOGY SECTION -->
             <section class="methodology">
                 <header id="method-header">
                     <h1>PLANET-HUNTING METHODS</h1>
@@ -222,6 +233,8 @@
                 <image id="direct-imaging-image"></image>
                 <image id="pulsar-timing-image"></image>
             </section>
+
+            <!-- RESOURCES SECTION -->
             <section class="resources">
                 <header id="resources-header">
                     <h1>FURTHER RESOURCES</h1>
@@ -249,7 +262,6 @@
                     </ul>
                 </section>
             </section>
-
         </main>
     </div>
 
