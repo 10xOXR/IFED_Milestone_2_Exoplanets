@@ -259,6 +259,7 @@ body {
     font-size: 2.5vmax;
     color: #FFF76B;
     margin-top: 20px;
+    text-shadow: 2px 2px 2px rgb(112, 112, 112);
 }
 
 #statistics-header h1 {
@@ -399,6 +400,7 @@ body {
     font-size: 2.5vmax;
     color: #FFF76B;
     margin-top: 20px;
+    text-shadow: 2px 2px 2px rgb(112, 112, 112);
 }
 
 #exoplanet-header h1 {
@@ -473,6 +475,7 @@ body {
     font-size: 2.5vmax;
     color: #FFF76B;
     margin-top: 20px;
+    text-shadow: 2px 2px 2px rgb(112, 112, 112);
 }
 
 #parsec-text {
@@ -600,6 +603,7 @@ body {
     font-size: 2.5vmax;
     color: #FFF76B;
     margin-top: 20px;
+    text-shadow: 2px 2px 2px rgb(112, 112, 112);
 }
 
 #method-header h1 {
@@ -642,6 +646,7 @@ body {
     font-size: 2.5vmax;
     color: #FFF76B;
     margin-top: 20px;
+    text-shadow: 2px 2px 2px rgb(112, 112, 112);
 }
 
 #resources-header h1 {
