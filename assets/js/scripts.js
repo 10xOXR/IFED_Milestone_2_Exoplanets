@@ -49,6 +49,27 @@ $(document).ready(function () {
 			});
 		}
 	});
+
+	// Display the back-to-top button only when the screen/window
+	// size is below 820px.
+	var btn = $('#button');
+
+	$(window).scroll(function () {
+		if ($(window).width() < 820) {
+			if ($(window).scrollTop() > 300) {
+				btn.addClass('show');
+			} else {
+				btn.removeClass('show');
+			}
+		}
+	});
+
+	btn.on('click', function (e) {
+		e.preventDefault();
+		$('html, body').animate({
+			scrollTop: 0
+		}, '300');
+	});
 });
 
 // ------------------------------------- HOME SECTION -------------------------------------
@@ -391,12 +412,16 @@ function exo_discovery_year(ndx) {
 function exo_distance(ndx) {
 
 	var barChart = dc.barChart("#planet-number-vs-distance");
-	var dim = ndx.dimension(function(d) {return d.st_dist;});
+	var dim = ndx.dimension(function (d) {
+		return d.st_dist;
+	});
 	var planetNumber = dim.group().reduceSum(dc.pluck("plnum"));
 
 	// Capture and use the lowest number in stellar distance column
 	// to set the lower range of the x-axis.
-	var stellarDist = ndx.dimension(function(d) {return d.st_dist;});
+	var stellarDist = ndx.dimension(function (d) {
+		return d.st_dist;
+	});
 	var minDist = stellarDist.bottom(1)[0].st_dist;
 
 	// Barchart properties.
