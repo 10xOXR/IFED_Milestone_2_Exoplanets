@@ -70,6 +70,11 @@ $(document).ready(function () {
 			scrollTop: 0
 		}, '300');
 	});
+
+	// Redraw all DC charts on clicking Reset button.
+	$('#reset-button').click(function() {
+		dc.filterAll(); dc.renderAll();
+	});
 });
 
 // ------------------------------------- HOME SECTION -------------------------------------
