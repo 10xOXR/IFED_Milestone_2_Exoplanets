@@ -191,10 +191,11 @@ body {
         ". multiple ."
         ". disc-year-title ."
         ". disc-year ."
+        ". planet-number-title ."
+        ". planet-number-vs-distance ."
         ". planets-in-system ."
         ". planets-orbital-period ."
         ". earth-radii ."
-        ". planet-size-vs-distance ."
         ". reset-button .";
     align-items: center;
     justify-items: center;
@@ -280,11 +281,10 @@ body {
     font-size: 1.5vmax;
 }
 
-#planet-size-vs-distance {
-    grid-area: planet-size-vs-distance;
+#disc-year,
+#planet-number-vs-distance {
     align-self: center;
     justify-self: left;
-    padding-top: 50px;
     width: 25vw;
     fill: #FFFFFF;
     shape-rendering: crispEdges;
@@ -292,22 +292,31 @@ body {
 
 #disc-year {
     grid-area: disc-year;
-    align-self: center;
-    justify-self: left;
-    width: 25vw;
-    fill: #FFFFFF;
-    shape-rendering: crispEdges;
+}
+
+#planet-number-vs-distance {
+    grid-area: planet-number-vs-distance;
 }
 
 #disc-year-title {
     grid-area: disc-year-title;
+}
+
+#planet-number-title {
+    grid-area: planet-number-title;
+}
+
+#disc-year-title,
+#planet-number-title {
     font-size: 1.3vmax;
-    padding-top: 25px;
+    margin-bottom: 5px;
 }
 
 #disc-year path.domain,
 #disc-year line,
-#planets-in-system path.domain {
+#planets-in-system path.domain,
+#planet-number-vs-distance path.domain,
+#planet-number-vs-distance line {
     fill: none;
     stroke: white;
 }
@@ -331,11 +340,13 @@ body {
 #disc-year.dc-chart svg,
 #planets-orbital-period.dc-chart svg,
 #planets-in-system.dc-chart svg,
-#earth-radii.dc-chart svg {
-    background-color: rgba(0, 0, 0, 0.7);
+#earth-radii.dc-chart svg,
+#planet-number-vs-distance svg {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-#disc-year.dc-chart svg {
+#disc-year.dc-chart svg,
+#planet-number-vs-distance svg {
     width: 90vw;
 }
 
@@ -720,8 +731,9 @@ body {
             "ground-based space-based multiple"
             "disc-year-title disc-year-title disc-year-title"
             "disc-year . ."
+            "planet-number-title planet-number-title planet-number-title"
+            "planet-number-vs-distance . ."
             "planets-in-system planets-orbital-period earth-radii"
-            "planet-size-vs-distance . ."
             ". reset-button .";
     }
 
@@ -742,7 +754,8 @@ body {
         margin: 15px 0 15px 0;
     }
 
-    #disc-year {
+    #disc-year,
+    #planet-number-vs-distance {
         justify-self: center;
         padding-top: 0;
     }
@@ -753,7 +766,8 @@ body {
         font-size: 1.2vmax
     }
 
-    #disc-year-title {
+    #disc-year-title,
+    #planet-number-title {
         font-size: 1.5vmax
     }
 
@@ -851,5 +865,3 @@ body {
         font-size: 1.3vmax;
     }
 }
-
-;
