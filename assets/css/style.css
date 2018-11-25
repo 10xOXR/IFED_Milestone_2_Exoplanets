@@ -59,7 +59,7 @@ body {
     grid-template-columns: 1fr;
     grid-template-areas: "menu-toggle";
     list-style-type: none;
-    padding: 10px;
+    padding: 10px 0;
     color: #ffffff;
     text-align: center;
     background-color: rgba(112, 112, 112, .4);
@@ -69,6 +69,7 @@ body {
 #menu-toggle {
     grid-area: menu-toggle;
     justify-self: end;
+    padding-right: 15px;
     cursor: pointer;
 }
 
@@ -79,6 +80,7 @@ body {
 
 .navbar li {
     line-height: 50px;
+    width: 97vw;
     text-shadow: 2px 2px 2px #000000;
 }
 
@@ -259,6 +261,10 @@ body {
     margin-top: 20px;
 }
 
+#statistics-header h1 {
+    margin-top: 25px;
+}
+
 #observe-loc {
     font-size: 3vmax;
     text-shadow: 2px 2px 2px rgb(112, 112, 112);
@@ -379,9 +385,13 @@ body {
     grid-area: exoplanet-header;
     text-align: center;
     font-family: 'Microgramma Bold Ext', Arial, sans-serif;
-    font-size: 1.8vmax;
+    font-size: 2.5vmax;
     color: #FFF76B;
     margin-top: 20px;
+}
+
+#exoplanet-header h1 {
+    margin-top: 25px;
 }
 
 #exoplanet-text-1 {
@@ -644,6 +654,10 @@ body {
     margin-top: 20px;
 }
 
+#resources-header h1 {
+    margin-top: 25px;
+}
+
 #resources-text {
     grid-area: resources-text;
     font-family: 'Microgramma Regular', Arial, sans-serif;
@@ -696,6 +710,7 @@ body {
 
     .navbar li {
         line-height: normal;
+        width: unset;
     }
 
     .navbar li:hover {
