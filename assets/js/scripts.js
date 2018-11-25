@@ -163,8 +163,8 @@ var planetGradients = svg.append("defs").selectAll("radialGradient")
 		return "gradient-" + d.planetName;
 	})
 
-	// Offset the gradients to appear as though each planet.
-	// is being lit by the Sun,
+	// Offset the gradients to appear as though each planet
+	// is being lit by the Sun.
 	.attr("cx", "35%")
 	.attr("cy", "50%")
 	.attr("r", "60%");
@@ -224,27 +224,29 @@ d3.timer(function () {
 
 // ------------------------------------- STATISTICS SECTION -------------------------------------
 
+// Promise to load the CSV data then execute makeGraphs when completed.
 d3.csv("assets/data/planets.csv").then(makeGraphs);
+
+// Select the default colourscheme for DC.js
 dc.config.defaultColors(d3.schemeSet2);
 
+// Primary function to run and render all graphs.
 function makeGraphs(exoPlanetData) {
+
 	var ndx = crossfilter(exoPlanetData);
 
 	exoPlanetData.forEach(function (d) {
 		d.pl_disc = parseInt(d.pl_disc);
 		d.loc_rowid = parseInt(d.loc_rowid);
 		d.plnum = parseInt(d.plnum);
-		d.pl_orbper = parseFloat(d.pl_orbper);
 		d.pl_rade = parseInt(Math.ceil(d.pl_rade));
-		d.pl_radj = parseInt(Math.ceil(d.pl_radj));
 		d.st_dist = parseInt(Math.ceil(d.st_dist));
-		d.pl_masse = parseInt(Math.ceil(d.pl_masse));
 	});
 
 	exo_discovery_year(ndx);
-	planets_in_system(ndx);
-	planets_orbital_period(ndx);
-	earth_radii(ndx);
+	planet_system_properties(ndx, "#planets-in-system", "plnumText", "plnum");
+	planet_system_properties(ndx, "#planets-orbital-period", "orbcatText", "orbcat");
+	planet_system_properties(ndx, "#earth-radii", "radeText", "rade");
 	exo_distance(ndx)
 	observatory_location(ndx, "Ground", "#ground-based-percent");
 	observatory_location(ndx, "Space", "#space-based-percent");
@@ -253,7 +255,10 @@ function makeGraphs(exoPlanetData) {
 	dc.renderAll();
 }
 
+// Function to return text-based results for the observatory location.
 function observatory_location(ndx, location, element) {
+
+	// Custom reducer matching location vs planet number.
 	var percentageByLocation = ndx.groupAll().reduce(
 		function (p, v) {
 			if (typeof v.loc_rowid == 'number') {
@@ -280,6 +285,8 @@ function observatory_location(ndx, location, element) {
 			};
 		}
 	);
+
+	// Display returned matched results as a percentage.
 	dc.numberDisplay(element)
 		.formatNumber(d3.format(".2%"))
 		.valueAccessor(function (d) {
@@ -293,8 +300,11 @@ function observatory_location(ndx, location, element) {
 		.transitionDuration(500);
 }
 
+// Function to create a stacked barchart showing discovery method
+// vs the year each planet was discovered.
 function exo_discovery_year(ndx) {
 
+	// Custom reducer to count against matched discovery method.
 	function rankByMethod(dimension, discMethod) {
 		return dimension.group().reduce(
 			function (p, v) {
@@ -320,18 +330,23 @@ function exo_discovery_year(ndx) {
 		);
 	}
 
+	// Create a barchart and use year of discovery as dimension.
 	var barChart = dc.barChart("#disc-year");
 	var dim = ndx.dimension(dc.pluck("pl_disc"));
-	var astroByMethod = rankByMethod(dim, "Astrometry");
-	var eclipseTimeVarByMethod = rankByMethod(dim, "Eclipse Timing Variations");
-	var imageByMethod = rankByMethod(dim, "Imaging");
-	var microlensByMethod = rankByMethod(dim, "Microlensing");
-	var orbitBrightModByMethod = rankByMethod(dim, "Orbital Brightness Modulation");
-	var pulsarTimeByMethod = rankByMethod(dim, "Pulsar Timing");
-	var pulsarTimeVarByMethod = rankByMethod(dim, "Pulsation Timing Variations");
-	var radialVelByMethod = rankByMethod(dim, "Radial Velocity");
-	var transitTimeByMethod = rankByMethod(dim, "Transit Timing Variations");
 
+	// Variables storing results from custom reducer for each matched
+	// discovery method.
+	var astroByMethod = rankByMethod(dim, "Astrometry"),
+		eclipseTimeVarByMethod = rankByMethod(dim, "Eclipse Timing Variations"),
+		imageByMethod = rankByMethod(dim, "Imaging"),
+		microlensByMethod = rankByMethod(dim, "Microlensing"),
+		orbitBrightModByMethod = rankByMethod(dim, "Orbital Brightness Modulation"),
+		pulsarTimeByMethod = rankByMethod(dim, "Pulsar Timing"),
+		pulsarTimeVarByMethod = rankByMethod(dim, "Pulsation Timing Variations"),
+		radialVelByMethod = rankByMethod(dim, "Radial Velocity"),
+		transitTimeByMethod = rankByMethod(dim, "Transit Timing Variations");
+
+	// Barchart properties.
 	barChart
 		.width(1350)
 		.height(350)
@@ -371,23 +386,27 @@ function exo_discovery_year(ndx) {
 		.yAxisLabel("No. of Planets");
 }
 
+// Function to create a standard barchart showing discovered planets
+// compared to how far they are from Earth.
 function exo_distance(ndx) {
 
 	var barChart = dc.barChart("#planet-number-vs-distance");
 	var dim = ndx.dimension(function(d) {return d.st_dist;});
-	var radialVelByMethod = dim.group().reduceSum(dc.pluck("plnum"));
+	var planetNumber = dim.group().reduceSum(dc.pluck("plnum"));
 
+	// Capture and use the lowest number in stellar distance column
+	// to set the lower range of the x-axis.
 	var stellarDist = ndx.dimension(function(d) {return d.st_dist;});
 	var minDist = stellarDist.bottom(1)[0].st_dist;
-	var maxDist = stellarDist.top(1)[0].st_dist;
 
+	// Barchart properties.
 	barChart
 		.width(1350)
 		.height(350)
 		.gap(10)
 		.useViewBoxResizing(true)
 		.dimension(dim)
-		.group(radialVelByMethod)
+		.group(planetNumber)
 		.transitionDuration(500)
 		.transitionDelay(500)
 		.colors("#FFF76B")
@@ -406,12 +425,15 @@ function exo_distance(ndx) {
 		.yAxisLabel("No. of Planets");
 }
 
-function planets_in_system(ndx) {
+// Function to create a custom piechart based on the arguments passed 
+// in the makeGraphs function.
+function planet_system_properties(ndx, section, dimension, custGroup) {
 
-	var pieChart = dc.pieChart("#planets-in-system");
-	var dim = ndx.dimension(dc.pluck("plnumText"));
-	var noOfPlanets = dim.group().reduceSum(dc.pluck("plnum"));
+	var pieChart = dc.pieChart(section);
+	var dim = ndx.dimension(dc.pluck(dimension));
+	var group = dim.group().reduceSum(dc.pluck(custGroup));
 
+	// Piechart properties
 	pieChart
 		.width(550)
 		.height(300)
@@ -421,77 +443,10 @@ function planets_in_system(ndx) {
 		.externalRadiusPadding(50)
 		.drawPaths(true)
 		.dimension(dim)
-		.group(noOfPlanets)
+		.group(group)
 		.legend(dc.legend());
 
-	pieChart.on('pretransition', function (chart) {
-		chart.selectAll('.dc-legend-item text')
-			.text('')
-			.append('tspan')
-			.text(function (d) {
-				return d.name;
-			})
-			.append('tspan')
-			.attr('x', 500)
-			.attr('text-anchor', 'end')
-			.text(function (d) {
-				return d.data;
-			});
-	});
-}
-
-function planets_orbital_period(ndx) {
-
-	var pieChart = dc.pieChart("#planets-orbital-period");
-	var dim = ndx.dimension(dc.pluck("orbcatText"));
-	var noOfPlanets = dim.group().reduceSum(dc.pluck("orbcat"));
-
-	pieChart
-		.width(550)
-		.height(300)
-		.useViewBoxResizing(true)
-		.innerRadius(50)
-		.externalLabels(50)
-		.externalRadiusPadding(50)
-		.drawPaths(true)
-		.dimension(dim)
-		.group(noOfPlanets)
-		.legend(dc.legend());
-
-	pieChart.on('pretransition', function (chart) {
-		chart.selectAll('.dc-legend-item text')
-			.text('')
-			.append('tspan')
-			.text(function (d) {
-				return d.name;
-			})
-			.append('tspan')
-			.attr('x', 500)
-			.attr('text-anchor', 'end')
-			.text(function (d) {
-				return d.data;
-			});
-	});
-}
-
-function earth_radii(ndx) {
-
-	var pieChart = dc.pieChart("#earth-radii");
-	var dim = ndx.dimension(dc.pluck("radeText"));
-	var earthRadii = dim.group().reduceSum(dc.pluck("rade"));
-
-	pieChart
-		.width(550)
-		.height(300)
-		.useViewBoxResizing(true)
-		.innerRadius(50)
-		.externalLabels(50)
-		.externalRadiusPadding(50)
-		.drawPaths(true)
-		.dimension(dim)
-		.group(earthRadii)
-		.legend(dc.legend());
-
+	// Create custom legend displaying name and amount of results.
 	pieChart.on('pretransition', function (chart) {
 		chart.selectAll('.dc-legend-item text')
 			.text('')
