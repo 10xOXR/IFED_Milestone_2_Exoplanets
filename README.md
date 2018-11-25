@@ -103,7 +103,7 @@ Both the planetary CVS data and text content on all pages was copied and/or amen
 
 - [NASA Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/)
 
-- [Caltech Exoplanet Science Institute](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=planets](https://www.goodreads.com/series/40650-discworld)
+- [Caltech Exoplanet Science Institute](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=planets)
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Methods_of_detecting_exoplanets)
 
