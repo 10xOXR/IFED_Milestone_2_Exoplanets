@@ -261,7 +261,6 @@ body {
 
 #observe-loc {
     font-size: 3vmax;
-    margin-bottom: 0;
     text-shadow: 2px 2px 2px rgb(112, 112, 112);
 }
 
@@ -271,6 +270,12 @@ body {
     color: #ffffff;
     font-size: 2vmax;
     text-shadow: 2px 2px 2px rgb(112, 112, 112);
+}
+
+#ground-based h3,
+#space-based h3,
+#multiple h3 {
+    margin: 5px 0;
 }
 
 #ground-based span,
@@ -306,7 +311,7 @@ body {
 #disc-year-title,
 #planet-number-title {
     font-size: 2vmax;
-    margin: 15px 0 5px 0;
+    margin: 30px 0 5px 0;
 }
 
 #disc-year path.domain,
