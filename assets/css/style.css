@@ -654,7 +654,7 @@ body {
     font-size: 1.7vmax;
     background-color: rgba(112, 112, 112, 0.3);
     border-radius: 10px;
-    padding: 30px;
+    padding: 20px;
     text-shadow: 2px 2px 2px #000000;
     margin-bottom: 25px;
     line-height: 40px;
@@ -663,6 +663,11 @@ body {
 .resources a {
     text-decoration: none;
     color: #ffffff;
+}
+
+.resources ul {
+    margin: 0;
+    padding: 0 25px;
 }
 
 .resources li {
@@ -677,6 +682,10 @@ body {
     cursor: pointer;
     transition: all .3s ease-in-out;
     color: #fff291;
+}
+
+.resources p {
+    margin: 0;
 }
 
 /*-------------------------------------------- MEDIA QUERIES --------------------------------------------*/
