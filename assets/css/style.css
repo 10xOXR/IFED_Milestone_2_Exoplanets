@@ -300,8 +300,7 @@ body {
     margin-top: 15px;
 }
 
-#disc-year-title span,
-#earth-radii span {
+#disc-year-title span {
     font-size: 1.5vmax;
 }
 
@@ -808,6 +807,7 @@ body {
     #exoplanet-image-2,
     #exoplanet-image-3 {
         width: 30vw;
+        margin: 0;
     }
 
     #exoplanet-text-1,
@@ -833,15 +833,17 @@ body {
     #astro-unit-image,
     #orbital-motion-image {
         width: 42.5vw;
+        align-self: start;
     }
 
     #parsec-text,
     #astro-unit-text,
     #orbital-motion-text {
         font-size: 1.3vmax;
+        align-self: start;
     }
 
-    /*------------ METHIDOLOGY SECTION -----------*/
+    /*------------ METHODOLOGY SECTION -----------*/
 
     .methodology {
         display: grid;
@@ -861,6 +863,7 @@ body {
     #pulsar-timing-image,
     #direct-imaging-image {
         width: 42.5vw;
+        align-self: start;
     }
 
     #rad-velocity-text,
@@ -869,6 +872,7 @@ body {
     #pulsar-timing-text,
     #direct-imaging-text {
         font-size: 1.3vmax;
+        align-self: start;
     }
 }
 
