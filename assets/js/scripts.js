@@ -407,7 +407,7 @@ function exo_discovery_year(ndx) {
 		.x(d3.scaleBand())
 		.xUnits(dc.units.ordinal)
 		.elasticY(true)
-		.legend(dc.legend().x(60).y(5).itemHeight(10).gap(5))
+		.legend(dc.legend().x(70).y(20).itemHeight(10).gap(5))
 		.xAxisLabel("Discovery Year")
 		.yAxisLabel("No. of Planets");
 }
@@ -474,7 +474,7 @@ function planet_system_properties(ndx, section, dimension, custGroup) {
 		.drawPaths(true)
 		.dimension(dim)
 		.group(group)
-		.legend(dc.legend().y(75));
+		.legend(dc.legend().x(20).y(75));
 
 	// Create custom legend displaying name and amount of results.
 	pieChart.on('pretransition', function (chart) {
