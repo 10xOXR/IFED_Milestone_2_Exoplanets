@@ -469,7 +469,7 @@ function planet_system_properties(ndx, section, dimension, custGroup) {
 		.drawPaths(true)
 		.dimension(dim)
 		.group(group)
-		.legend(dc.legend());
+		.legend(dc.legend().y(75));
 
 	// Create custom legend displaying name and amount of results.
 	pieChart.on('pretransition', function (chart) {

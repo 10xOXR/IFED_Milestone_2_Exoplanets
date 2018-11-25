@@ -243,7 +243,7 @@ body {
 
 #reset-button {
     grid-area: reset-button;
-    margin-bottom: 25px;
+    margin: 30px 0;
 }
 
 #reset-button a {
@@ -753,7 +753,6 @@ body {
     #reset-button {
         align-self: center;
         justify-self: center;
-        margin: 15px 0 15px 0;
     }
 
     #disc-year,
