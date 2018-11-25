@@ -43,12 +43,6 @@ body {
     align-self: center;
 }
 
-#footer {
-    grid-area: footer;
-    justify-items: center;
-    align-self: center;
-}
-
 #container {
     display: grid;
     grid-template-rows: auto minmax(90vh, auto) auto;
@@ -59,6 +53,7 @@ body {
 }
 
 /*-------------------------------------------- NAVBAR --------------------------------------------*/
+
 #menu-toggle {
     position: relative;
     text-align: right;
@@ -116,14 +111,6 @@ body {
 }
 
 /*-------------------------------------------- HOME SECTION --------------------------------------------*/
-#planets {
-    grid-area: planets;
-}
-
-#intro {
-    grid-area: intro;
-    text-align: center;
-}
 
 .home {
     display: grid;
@@ -132,6 +119,15 @@ body {
         ". intro ."
         ". planets .";
     align-items: center;
+}
+
+#planets {
+    grid-area: planets;
+}
+
+#intro {
+    grid-area: intro;
+    text-align: center;
 }
 
 #intro h1 {
@@ -146,7 +142,6 @@ body {
     margin: 10px 0 20px 0;
     text-shadow: 2px 2px 2px rgb(112, 112, 112);
 }
-
 #intro button,
 #reset-button {
     border-radius: 50px;
@@ -201,45 +196,6 @@ body {
     justify-items: center;
 }
 
-#statistics-header {
-    grid-area: statistics-header;
-    text-align: center;
-    font-size: 2.5vmax;
-    color: #FFF76B;
-    margin-top: 20px;
-}
-
-#reset-button {
-    grid-area: reset-button;
-    margin-bottom: 25px;
-}
-
-#reset-button a {
-    text-decoration: none;
-    color: #000000;
-}
-
-#ground-based,
-#space-based,
-#multiple {
-    color: #ffffff;
-    font-size: 2vmax;
-    text-shadow: 2px 2px 2px rgb(112, 112, 112);
-}
-
-#observe-loc {
-    font-size: 3vmax;
-    margin-bottom: 0;
-    text-shadow: 2px 2px 2px rgb(112, 112, 112);
-}
-
-#ground-based span,
-#space-based span,
-#multiple span {
-    color: #FFF76B;
-    text-shadow: 2px 2px 2px rgb(112, 112, 112);
-}
-
 #observe-loc {
     grid-area: observe-loc;
 }
@@ -256,6 +212,22 @@ body {
     grid-area: multiple;
 }
 
+#disc-year {
+    grid-area: disc-year;
+}
+
+#disc-year-title {
+    grid-area: disc-year-title;
+}
+
+#planet-number-title {
+    grid-area: planet-number-title;
+}
+
+#planet-number-vs-distance {
+    grid-area: planet-number-vs-distance;
+}
+
 #planets-orbital-period {
     grid-area: planets-orbital-period;
 }
@@ -268,6 +240,44 @@ body {
     grid-area: earth-radii;
 }
 
+#reset-button {
+    grid-area: reset-button;
+    margin-bottom: 25px;
+}
+
+#reset-button a {
+    text-decoration: none;
+    color: #000000;
+}
+
+#statistics-header {
+    grid-area: statistics-header;
+    text-align: center;
+    font-size: 2.5vmax;
+    color: #FFF76B;
+    margin-top: 20px;
+}
+
+#observe-loc {
+    font-size: 3vmax;
+    margin-bottom: 0;
+    text-shadow: 2px 2px 2px rgb(112, 112, 112);
+}
+
+#ground-based,
+#space-based,
+#multiple {
+    color: #ffffff;
+    font-size: 2vmax;
+    text-shadow: 2px 2px 2px rgb(112, 112, 112);
+}
+
+#ground-based span,
+#space-based span,
+#multiple span {
+    color: #FFF76B;
+}
+
 #planets-orbital-period,
 #planets-in-system,
 #earth-radii {
@@ -275,8 +285,10 @@ body {
     justify-items: center;
     text-align: center;
     font-size: 2vmax;
+    margin-top: 15px;
 }
 
+#disc-year-title span,
 #earth-radii span {
     font-size: 1.5vmax;
 }
@@ -290,26 +302,10 @@ body {
     shape-rendering: crispEdges;
 }
 
-#disc-year {
-    grid-area: disc-year;
-}
-
-#planet-number-vs-distance {
-    grid-area: planet-number-vs-distance;
-}
-
-#disc-year-title {
-    grid-area: disc-year-title;
-}
-
-#planet-number-title {
-    grid-area: planet-number-title;
-}
-
 #disc-year-title,
 #planet-number-title {
-    font-size: 1.3vmax;
-    margin-bottom: 5px;
+    font-size: 2vmax;
+    margin: 15px 0 5px 0;
 }
 
 #disc-year path.domain,
@@ -382,6 +378,14 @@ body {
     margin-top: 20px;
 }
 
+#exoplanet-text-1 {
+    grid-area: exoplanet-text-1;
+}
+
+#exoplanet-text-2 {
+    grid-area: exoplanet-text-2;
+}
+
 #exoplanet-text-1,
 #exoplanet-text-2 {
     font-family: 'Microgramma Regular', Arial, sans-serif;
@@ -390,14 +394,6 @@ body {
     border-radius: 10px;
     padding: 10px;
     text-shadow: 2px 2px 2px #000000;
-}
-
-#exoplanet-text-1 {
-    grid-area: exoplanet-text-1;
-}
-
-#exoplanet-text-2 {
-    grid-area: exoplanet-text-2;
 }
 
 #exoplanet-image-1,
@@ -455,6 +451,18 @@ body {
     margin-top: 20px;
 }
 
+#parsec-text {
+    grid-area: parsec-text;
+}
+
+#astro-unit-text {
+    grid-area: astro-unit-text;
+}
+
+#orbital-motion-text {
+    grid-area: orbital-motion-text;
+}
+
 #terminology-header h1 {
     margin-top: 25px;
 }
@@ -474,18 +482,6 @@ body {
     padding: 10px;
     text-shadow: 2px 2px 2px #000000;
     margin-bottom: 25px;
-}
-
-#parsec-text {
-    grid-area: parsec-text;
-}
-
-#astro-unit-text {
-    grid-area: astro-unit-text;
-}
-
-#orbital-motion-text {
-    grid-area: orbital-motion-text;
 }
 
 #parsec-image,
@@ -535,6 +531,34 @@ body {
     letter-spacing: 2px;
 }
 
+#rad-velocity-text {
+    grid-area: rad-velocity-text;
+}
+
+#microlensing-text {
+    grid-area: microlensing-text;
+}
+
+#transit-method-text {
+    grid-area: transit-method-text;
+}
+
+#pulsar-timing-text {
+    grid-area: pulsar-timing-text;
+}
+
+#direct-imaging-text {
+    grid-area: direct-imaging-text;
+}
+
+#rad-velocity-video {
+    grid-area: rad-velocity-video;
+}
+
+#microlensing-video {
+    grid-area: microlensing-video;
+}
+
 #rad-velocity-text,
 #microlensing-text,
 #transit-method-text,
@@ -566,26 +590,6 @@ body {
     color: #ffffff;
 }
 
-#rad-velocity-text {
-    grid-area: rad-velocity-text;
-}
-
-#microlensing-text {
-    grid-area: microlensing-text;
-}
-
-#transit-method-text {
-    grid-area: transit-method-text;
-}
-
-#pulsar-timing-text {
-    grid-area: pulsar-timing-text;
-}
-
-#direct-imaging-text {
-    grid-area: direct-imaging-text;
-}
-
 #rad-velocity-video,
 #microlensing-video,
 #transit-method-image,
@@ -595,14 +599,6 @@ body {
     width: 80vw;
     border-radius: 10px;
     margin-bottom: 25px;
-}
-
-#rad-velocity-video {
-    grid-area: rad-velocity-video;
-}
-
-#microlensing-video {
-    grid-area: microlensing-video;
 }
 
 #transit-method-image {
@@ -763,16 +759,18 @@ body {
     #planets-in-system,
     #planets-orbital-period,
     #earth-radii {
-        font-size: 1.2vmax
+        font-size: 1.2vmax;
     }
 
     #disc-year-title,
     #planet-number-title {
-        font-size: 1.5vmax
+        font-size: 1.5vmax;
+        margin-top: 40px;
     }
 
-    #disc-year-title span {
-        font-size: 1vmax
+    #disc-year-title span,
+    #earth-radii span {
+        font-size: 1vmax;
     }
 
     #planets-in-system,
@@ -780,10 +778,7 @@ body {
     #earth-radii {
         width: 30vw;
         text-align: center;
-    }
-
-    #earth-radii span {
-        font-size: 1vmax;
+        margin-top: 40px;
     }
 
     /*------------ EXOPLANETS SECTION -----------*/
