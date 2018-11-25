@@ -2,6 +2,8 @@
 
 $(document).ready(function () {
 
+	// ------------------------------------- NAVBAR -------------------------------------
+
 	// On load, hide all sections aside from 'Home'.
 	$(function () {
 		$(".statistics, .exoplanets, .terminology, .methodology, .resources").hide();
@@ -64,6 +66,8 @@ $(document).ready(function () {
 		}
 	});
 
+	// ------------------------------------- MISC ITEMS -------------------------------------
+
 	btn.on('click', function (e) {
 		e.preventDefault();
 		$('html, body').animate({
@@ -72,9 +76,14 @@ $(document).ready(function () {
 	});
 
 	// Redraw all DC charts on clicking Reset button.
-	$('#reset-button').click(function() {
-		dc.filterAll(); dc.renderAll();
+	$('#reset-button').click(function () {
+		dc.filterAll();
+		dc.renderAll();
 	});
+
+	// set the copyright year dynamically for the footer
+	$("#year").html(new Date().getFullYear());
+
 });
 
 // ------------------------------------- HOME SECTION -------------------------------------
