@@ -1,9 +1,9 @@
 # Exoplanets and How to Find Them
 ### _Milestone Project 2: Interactive Frontend Development (JavaScript / jQuery / D3.js / DC.js)_
 
-This project centres around an interactive data dashboard detailing various aspects of Exoplanet discoveries. Rather than a simple one-page (and dull) dashboard, I thought it would be more engaging to build the dashboard in the wider context of a site providing information on exoplanets and the methods used to find them. 
+This project centres around an interactive data dashboard detailing various aspects of exoplanet discoveries. Rather than a simple one-page (and dull) dashboard, I thought it would be more engaging to build the dashboard in the wider context of a site providing information on exoplanets and the methods used to find them. 
 
-The dashboard has been build using the latest versions D3.js, DC.js, and Crossfilter.js libraries, and styled using only CSS-Grid.
+The dashboard has been build using the latest versions of D3.js, DC.js, and Crossfilter.js libraries, and styled using only CSS Grid.
  
 ## UX
  
@@ -21,7 +21,7 @@ The following is a summary of the features already in place and those that could
 
 ### Existing Features
 
-- The entire site is a single HTML page, with elements hidden and shown, using jQuery, according to the Navbar selection.
+- The entire site is a single HTML page, with elements hidden and shown using jQuery, according to the Navbar selection.
 	- This approach is more streamlined than having six separate pages and provides more visually appealing transitions.
 
 - Fully responsive D3.js animations, DC.js dashboard charts, and interactive charts using Crossfilter2.
@@ -62,7 +62,7 @@ A test matrix created in MS Excel can be found [here](https://github.com/10xOXR/
 
 ### Noted Issues
 
-Owing to the use of CSS-Grid for the section layouts, the site is incompatible with all versions of Microsoft Internet Explorer. This shouldn't pose much of an issue, as usage of IE has fallen to less than 7% globally (Aug'18) and all other browsers in use support CSS-Grid natively.
+Owing to the use of CSS Grid for the section layouts, the site is incompatible with all versions of Microsoft Internet Explorer. This shouldn't pose much of an issue, as usage of IE has fallen to less than 7% globally (Aug'18) and all other browsers in use support CSS Grid natively.
 
 ## Technologies Used
 
@@ -90,16 +90,21 @@ Owing to the use of CSS-Grid for the section layouts, the site is incompatible w
 - [Font Awesome 5]( https://fontawesome.com/icons?d=gallery)
 	- Icon elements used for hamburger menu and back-to-top button.
 
-
 ## Deployment
 
-The site has been deployed using GitHub Pages and is available to review [here](https://10xoxr.github.io/IFED_Milestone_2_Exoplanets/).
+Deployment and source control was entirely done via GitHub. The repository can be found here:
 
-Local deployment is not required.
+Repo: https://github.com/TravelTimN/ci-milestone02-ifd
+
+The site has been deployed using GitHub Pages and is available to review here: 
+
+Github Pages: https://10xoxr.github.io/IFED_Milestone_2_Exoplanets/.
+
+Local deployment is not required for this project.
 
 ## Content
 
-Both the planetary CVS data and text content on all pages was copied and/or amended from the following sites:
+Both the planetary CSV data and text content on all pages was copied and/or amended from the following sites:
 
 - [NASA Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/)
 
