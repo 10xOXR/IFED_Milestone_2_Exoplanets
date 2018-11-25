@@ -268,7 +268,7 @@ function makeGraphs(exoPlanetData) {
 	planet_system_properties(ndx, "#planets-in-system", "plnumText", "plnum");
 	planet_system_properties(ndx, "#planets-orbital-period", "orbcatText", "orbcat");
 	planet_system_properties(ndx, "#earth-radii", "radeText", "rade");
-	exo_distance(ndx)
+	exo_distance(ndx);
 	observatory_location(ndx, "Ground", "#ground-based-percent");
 	observatory_location(ndx, "Space", "#space-based-percent");
 	observatory_location(ndx, "Multiple Locales", "#multiple-percent");

@@ -575,6 +575,19 @@ body {
     grid-area: microlensing-video;
 }
 
+#transit-method-image {
+    grid-area: transit-method-image;
+}
+
+#direct-imaging-image {
+    grid-area: direct-imaging-image;
+}
+
+#pulsar-timing-image {
+    grid-area: pulsar-timing-image;
+    content: url("../images/PSR_B1257_12_system.jpg");
+}
+
 #rad-velocity-text,
 #microlensing-text,
 #transit-method-text,
@@ -615,21 +628,6 @@ body {
     width: 80vw;
     border-radius: 10px;
     margin-bottom: 25px;
-}
-
-#transit-method-image {
-    grid-area: transit-method-image;
-    content: url("../images/transitgif2.gif");
-}
-
-#direct-imaging-image {
-    grid-area: direct-imaging-image;
-    content: url("../images/HR_8799_Orbiting_Exoplanets.gif");
-}
-
-#pulsar-timing-image {
-    grid-area: pulsar-timing-image;
-    content: url("../images/PSR_B1257_12_system.jpg");
 }
 
 /*-------------------------------------------- FURTHER RESOURCES SECTION --------------------------------------------*/
