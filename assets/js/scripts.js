@@ -1,13 +1,13 @@
 // ------------------------------------- NAVBAR -------------------------------------
 
-$(document).ready(function() {
+$(document).ready(function () {
 
 	// On load, hide all sections aside from 'Home'.
-	$(function() {
+	$(function () {
 		$(".statistics, .exoplanets, .terminology, .methodology, .resources").hide();
 
 		// When each nav li is clicked, hide all sections.
-		$("#navHome, #navStats, #navExo, #navTerms, #navMethod, #navResc, #cta").on("click", function() {
+		$("#navHome, #navStats, #navExo, #navTerms, #navMethod, #navResc, #cta").on("click", function () {
 			$(".home, .statistics, .exoplanets, .terminology, .methodology, .resources").hide();
 
 			// Remove the 'selected' class from all li elements.
@@ -42,9 +42,9 @@ $(document).ready(function() {
 
 	// Toggle the displayNone class to show/hide the navbar only when
 	// the screen/window size is below 820px.
-	$("#menu-toggle, #navHome, #navStats, #navExo, #navTerms, #navMethod, #navResc").on("click", function() {
+	$("#menu-toggle, #navHome, #navStats, #navExo, #navTerms, #navMethod, #navResc").on("click", function () {
 		if ($(window).width() < 820) {
-			$("#nav>ul").slideToggle('normal', function() {
+			$("#nav>ul").slideToggle('normal', function () {
 				$(this).css('display', '').toggleClass('displayNone');
 			});
 		}
@@ -158,33 +158,33 @@ var planetGradients = svg.append("defs").selectAll("radialGradient")
 	.enter()
 	.append("radialGradient")
 
-// Create a unique id per planet.
-.attr("id", function(d) {
-	return "gradient-" + d.planetName;
-})
+	// Create a unique id per planet.
+	.attr("id", function (d) {
+		return "gradient-" + d.planetName;
+	})
 
-// Offset the gradients to appear as though each planet.
-// is being lit by the Sun,
-.attr("cx", "35%")
+	// Offset the gradients to appear as though each planet.
+	// is being lit by the Sun,
+	.attr("cx", "35%")
 	.attr("cy", "50%")
 	.attr("r", "60%");
 
 // Add colors to the gradient.
 planetGradients.append("stop")
 	.attr("offset", "0%")
-	.attr("stop-color", function(d) {
+	.attr("stop-color", function (d) {
 		return d3.rgb(d.color).brighter(1);
 	});
 
 planetGradients.append("stop")
 	.attr("offset", "50%")
-	.attr("stop-color", function(d) {
+	.attr("stop-color", function (d) {
 		return d.color;
 	});
 
 planetGradients.append("stop")
 	.attr("offset", "100%")
-	.attr("stop-color", function(d) {
+	.attr("stop-color", function (d) {
 		return d3.rgb(d.color).darker(1.75);
 	});
 
@@ -197,7 +197,7 @@ container.selectAll("g.planetName")
 	.data(planets)
 	.enter()
 	.append("g")
-	.attr("class", "planetName").each(function(d) {
+	.attr("class", "planetName").each(function (d) {
 		d3.select(this)
 			.append("circle")
 			.attr("class", "orbit")
@@ -207,17 +207,17 @@ container.selectAll("g.planetName")
 			.attr("r", d.planetRadius)
 			.attr("cx", d.orbitRadius)
 			.attr("cy", 0)
-			.style("fill", function(d) {
+			.style("fill", function (d) {
 				return "url(#gradient-" + d.planetName + ")";
 			});
 	});
 
 // Timer function to animate the SVG group elements according
 // to the speed defined in the 'planets' variable array.
-d3.timer(function() {
+d3.timer(function () {
 	var delta = (Date.now() - startTime);
 	svg.selectAll(".planetName")
-		.attr("transform", function(d) {
+		.attr("transform", function (d) {
 			return "rotate(" + delta * d.orbitSpeed / 200 + ")";
 		});
 });
@@ -230,21 +230,22 @@ dc.config.defaultColors(d3.schemeSet2);
 function makeGraphs(exoPlanetData) {
 	var ndx = crossfilter(exoPlanetData);
 
-	exoPlanetData.forEach(function(d) {
+	exoPlanetData.forEach(function (d) {
 		d.pl_disc = parseInt(d.pl_disc);
 		d.loc_rowid = parseInt(d.loc_rowid);
 		d.plnum = parseInt(d.plnum);
 		d.pl_orbper = parseFloat(d.pl_orbper);
-		d.pl_rade = parseFloat(d.pl_rade);
-		d.pl_radj = parseFloat(d.pl_radj);
+		d.pl_rade = parseInt(Math.ceil(d.pl_rade));
+		d.pl_radj = parseInt(Math.ceil(d.pl_radj));
 		d.st_dist = parseInt(Math.ceil(d.st_dist));
+		d.pl_masse = parseInt(Math.ceil(d.pl_masse));
 	});
 
 	exo_discovery_year(ndx);
 	planets_in_system(ndx);
 	planets_orbital_period(ndx);
 	earth_radii(ndx);
-	//planet_size_vs_distance(ndx)
+	exo_distance(ndx)
 	observatory_location(ndx, "Ground", "#ground-based-percent");
 	observatory_location(ndx, "Space", "#space-based-percent");
 	observatory_location(ndx, "Multiple Locales", "#multiple-percent");
@@ -254,7 +255,7 @@ function makeGraphs(exoPlanetData) {
 
 function observatory_location(ndx, location, element) {
 	var percentageByLocation = ndx.groupAll().reduce(
-		function(p, v) {
+		function (p, v) {
 			if (typeof v.loc_rowid == 'number') {
 				p.count++;
 				if (v.pl_locale === location) {
@@ -263,7 +264,7 @@ function observatory_location(ndx, location, element) {
 			}
 			return p;
 		},
-		function(p, v) {
+		function (p, v) {
 			if (typeof v.loc_rowid == 'number') {
 				p.count--;
 				if (v.pl_locale === location) {
@@ -272,7 +273,7 @@ function observatory_location(ndx, location, element) {
 			}
 			return p;
 		},
-		function() {
+		function () {
 			return {
 				count: 0,
 				locale: 0
@@ -281,7 +282,7 @@ function observatory_location(ndx, location, element) {
 	);
 	dc.numberDisplay(element)
 		.formatNumber(d3.format(".2%"))
-		.valueAccessor(function(d) {
+		.valueAccessor(function (d) {
 			if (d.count === 0) {
 				return 0;
 			} else {
@@ -296,21 +297,21 @@ function exo_discovery_year(ndx) {
 
 	function rankByMethod(dimension, discMethod) {
 		return dimension.group().reduce(
-			function(p, v) {
+			function (p, v) {
 				p.total++;
 				if (v.discmethod == discMethod) {
 					p.match++;
 				}
 				return p;
 			},
-			function(p, v) {
+			function (p, v) {
 				p.total--;
 				if (v.discmethod == discMethod) {
 					p.match--;
 				}
 				return p;
 			},
-			function() {
+			function () {
 				return {
 					total: 0,
 					match: 0
@@ -346,12 +347,18 @@ function exo_discovery_year(ndx) {
 		.stack(pulsarTimeVarByMethod, "Pulsar Timing Variations")
 		.stack(orbitBrightModByMethod, "Orbital Brightness Modulation")
 		.stack(transitTimeByMethod, "Transit Timing Variations")
-		.valueAccessor(function(d) {
+		.valueAccessor(function (d) {
 			if (d.value.total > 0) {
 				return d.value.match;
 			} else {
 				return 0;
 			}
+		})
+		.margins({
+			top: 10,
+			right: 30,
+			bottom: 50,
+			left: 40
 		})
 		.transitionDuration(500)
 		.transitionDelay(500)
@@ -360,13 +367,42 @@ function exo_discovery_year(ndx) {
 		.xUnits(dc.units.ordinal)
 		.elasticY(true)
 		.legend(dc.legend().x(60).y(5).itemHeight(10).gap(5))
+		.xAxisLabel("Discovery Year")
+		.yAxisLabel("No. of Planets");
+}
+
+function exo_distance(ndx) {
+
+	var barChart = dc.barChart("#planet-number-vs-distance");
+	var dim = ndx.dimension(function(d) {return d.st_dist;});
+	var radialVelByMethod = dim.group().reduceSum(dc.pluck("plnum"));
+
+	var stellarDist = ndx.dimension(function(d) {return d.st_dist;});
+	var minDist = stellarDist.bottom(1)[0].st_dist;
+	var maxDist = stellarDist.top(1)[0].st_dist;
+
+	barChart
+		.width(1350)
+		.height(350)
+		.gap(10)
+		.useViewBoxResizing(true)
+		.dimension(dim)
+		.group(radialVelByMethod)
+		.transitionDuration(500)
+		.transitionDelay(500)
+		.colors("#FFF76B")
+		.useViewBoxResizing(true)
+		.renderHorizontalGridLines(true)
 		.margins({
 			top: 10,
-			right: 100,
-			bottom: 30,
-			left: 30
+			right: 30,
+			bottom: 50,
+			left: 40
 		})
-		.xAxisLabel("Discovery Year")
+		.x(d3.scaleLinear().domain([minDist, 2000]))
+		.xUnits(dc.units.integers)
+		.elasticY(true)
+		.xAxisLabel("Distance (Parsecs)")
 		.yAxisLabel("No. of Planets");
 }
 
@@ -388,17 +424,17 @@ function planets_in_system(ndx) {
 		.group(noOfPlanets)
 		.legend(dc.legend());
 
-	pieChart.on('pretransition', function(chart) {
+	pieChart.on('pretransition', function (chart) {
 		chart.selectAll('.dc-legend-item text')
 			.text('')
 			.append('tspan')
-			.text(function(d) {
+			.text(function (d) {
 				return d.name;
 			})
 			.append('tspan')
 			.attr('x', 500)
 			.attr('text-anchor', 'end')
-			.text(function(d) {
+			.text(function (d) {
 				return d.data;
 			});
 	});
@@ -422,17 +458,17 @@ function planets_orbital_period(ndx) {
 		.group(noOfPlanets)
 		.legend(dc.legend());
 
-	pieChart.on('pretransition', function(chart) {
+	pieChart.on('pretransition', function (chart) {
 		chart.selectAll('.dc-legend-item text')
 			.text('')
 			.append('tspan')
-			.text(function(d) {
+			.text(function (d) {
 				return d.name;
 			})
 			.append('tspan')
 			.attr('x', 500)
 			.attr('text-anchor', 'end')
-			.text(function(d) {
+			.text(function (d) {
 				return d.data;
 			});
 	});
@@ -456,60 +492,18 @@ function earth_radii(ndx) {
 		.group(earthRadii)
 		.legend(dc.legend());
 
-	pieChart.on('pretransition', function(chart) {
+	pieChart.on('pretransition', function (chart) {
 		chart.selectAll('.dc-legend-item text')
 			.text('')
 			.append('tspan')
-			.text(function(d) {
+			.text(function (d) {
 				return d.name;
 			})
 			.append('tspan')
 			.attr('x', 500)
 			.attr('text-anchor', 'end')
-			.text(function(d) {
+			.text(function (d) {
 				return d.data;
 			});
 	});
-}
-
-function planet_size_vs_distance(ndx) {
-
-	var seriesChart = dc.seriesChart("#planet-size-vs-distance");
-	var dim = ndx.dimension(function(d) {
-		return [d.pl_radj, d.pl_rade];
-	});
-	var sizeVsDist = dim.group().reduceSum(function(d) {
-		return d.st_dist;
-	});
-
-	seriesChart
-		.width(768)
-		.height(480)
-		.chart(function(c) {
-			return dc.lineChart(c).curve(d3.curveCardinal);
-		})
-		.x(d3.scaleLinear().domain([0, 100]))
-		.brushOn(false)
-		.yAxisLabel("Planet Radius")
-		.xAxisLabel("Distance (Parsecs)")
-		.clipPadding(10)
-		.elasticY(true)
-		.dimension(dim)
-		.group(sizeVsDist)
-		.mouseZoomable(true)
-		.seriesAccessor(function(d) {
-			return "Expt: " + d.key[0];
-		})
-		.keyAccessor(function(d) {
-			return +d.key[1];
-		})
-		.valueAccessor(function (d) {
-		    return +d.value - 500;
-		})
-		.legend(dc.legend().x(350).y(350).itemHeight(13).gap(5).horizontal(1).legendWidth(140).itemWidth(70));
-
-	seriesChart.yAxis().tickFormat(function(d) {
-		return d3.format(',d')(d + 0);
-	});
-	seriesChart.margins().left += 40;
 }
