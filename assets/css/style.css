@@ -54,26 +54,27 @@ body {
 
 /*-------------------------------------------- NAVBAR --------------------------------------------*/
 
-#menu-toggle {
-    position: relative;
-    text-align: right;
-    margin: 20px 0 0 0;
-    cursor: pointer;
-    right: 15px;
-}
-
-.navbar {
-    position: relative;
+#nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "menu-toggle";
     list-style-type: none;
-    padding: 0;
+    padding: 10px;
     color: #ffffff;
     text-align: center;
     background-color: rgba(112, 112, 112, .4);
     letter-spacing: 2px;
 }
 
+#menu-toggle {
+    grid-area: menu-toggle;
+    justify-self: end;
+    cursor: pointer;
+}
+
 #nav ul {
     padding: 0;
+    list-style-type: none;
 }
 
 .navbar li {
@@ -676,7 +677,7 @@ body {
     /*------------ NAVBAR -----------*/
 
     .navbar {
-        margin: 15px 0 0 0;
+        margin: 0;
         padding: 0;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
@@ -860,3 +861,41 @@ body {
         font-size: 1.3vmax;
     }
 }
+
+/*-------------------------------------------- BACK-TO-TOP BUTTON --------------------------------------------*/
+
+#button {
+    display: inline-block;
+    background-color: rgb(99, 98, 66);
+    border: 1px solid rgb(172, 167, 72);
+    color: #ffffff;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 4px;
+    margin: 0;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+    z-index: 1000;
+  }
+
+  #button:hover {
+    cursor: pointer;
+    background-color: #FFF76B;
+  }
+
+  #button.show {
+    opacity: 0.7;
+    visibility: visible;
+  }
+
+  .arrow {
+    font-size: 1.5em;
+    line-height: 29px;
+    padding-left: 3px;
+    color: #fff;
+  }
