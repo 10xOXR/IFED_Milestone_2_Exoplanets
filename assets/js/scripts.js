@@ -1,5 +1,3 @@
-// ------------------------------------- NAVBAR -------------------------------------
-
 $(document).ready(function () {
 
 	// ------------------------------------- NAVBAR -------------------------------------
@@ -52,6 +50,8 @@ $(document).ready(function () {
 		}
 	});
 
+	// ------------------------------------- MISC ITEMS -------------------------------------
+
 	// Display the back-to-top button only when the screen/window
 	// size is below 820px.
 	var btn = $('#button');
@@ -65,8 +65,6 @@ $(document).ready(function () {
 			}
 		}
 	});
-
-	// ------------------------------------- MISC ITEMS -------------------------------------
 
 	btn.on('click', function (e) {
 		e.preventDefault();
