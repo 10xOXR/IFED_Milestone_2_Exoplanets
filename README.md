@@ -94,7 +94,7 @@ Owing to the use of CSS Grid for the section layouts, the site is incompatible w
 
 Deployment and source control was entirely done via GitHub. The repository can be found here:
 
-Repo: https://github.com/TravelTimN/ci-milestone02-ifd
+Repo: https://github.com/10xOXR/IFED_Milestone_2_Exoplanets
 
 The site has been deployed using GitHub Pages and is available to review here: 
 
